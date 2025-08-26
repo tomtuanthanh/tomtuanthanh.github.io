@@ -22,15 +22,23 @@
         nav {
             background: #333;
             padding: 10px 0;
-            text-align: center;
         }
-        nav a {
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
             font-weight: bold;
         }
-        nav a:hover {
+        nav ul li a:hover {
             color: #4CAF50;
         }
         main {
@@ -46,9 +54,6 @@
         }
         h1, h2 {
             text-align: center;
-        }
-        section {
-            margin-bottom: 40px;
         }
         footer {
             text-align: center;
@@ -66,33 +71,30 @@
 
     <!-- Menu -->
     <nav>
-        <a href="#gioithieu">Giới thiệu</a>
-        <a href="#sothich">Sở thích</a>
-        <a href="#lienhe">Liên hệ</a>
+        <ul>
+            <li><a href="#gioithieu">Giới thiệu</a></li>
+            <li><a href="#sothich">Sở thích</a></li>
+            <li><a href="#lienhe">Liên hệ</a></li>
+        </ul>
     </nav>
 
     <main>
-        <section id="gioithieu">
-            <img src="https://via.placeholder.com/200" alt="Ảnh đại diện">
-            <h2>Giới thiệu</h2>
-            <p>Mình là <strong>Trần Gia Tuấn Thành</strong>, 12 tuổi, hiện đang học lớp 7 tại trường Trần Đại Nghĩa.</p>
-            <p>Mình yêu thích đọc sách, học Toán và Tiếng Anh. Ngoài ra, mình cũng quan tâm đến lập trình và công nghệ.</p>
-        </section>
+        <img src="https://via.placeholder.com/200" alt="Ảnh đại diện">
         
-        <section id="sothich">
-            <h2>Sở thích</h2>
-            <ul>
-                <li>Đọc sách</li>
-                <li>Học Toán</li>
-                <li>Lập trình C++</li>
-                <li>Bơi lội</li>
-            </ul>
-        </section>
+        <h2 id="gioithieu">Giới thiệu</h2>
+        <p>Mình là <strong>Trần Gia Tuấn Thành</strong>, 12 tuổi, hiện đang học lớp 7 tại trường Trần Đại Nghĩa.</p>
+        <p>Mình yêu thích đọc sách, học Toán và Tiếng Anh. Ngoài ra, mình cũng quan tâm đến lập trình và công nghệ.</p>
+        
+        <h2 id="sothich">Sở thích</h2>
+        <ul>
+            <li>Đọc sách</li>
+            <li>Học Toán</li>
+            <li>Lập trình C++</li>
+            <li>Bơi lội</li>
+        </ul>
 
-        <section id="lienhe">
-            <h2>Liên hệ</h2>
-            <p>Email: <em>tomtuanthanh</em></p>
-        </section>
+        <h2 id="lienhe">Liên hệ</h2>
+        <p>Email: <em>tomtuanthanh</em></p>
     </main>
 
     <footer>
