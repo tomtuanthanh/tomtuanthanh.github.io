@@ -1,104 +1,88 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giới thiệu về Trần Gia Tuấn Thành</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-        header {
-            background: #4CAF50;
-            color: white;
-            padding: 15px 0;
-            text-align: center;
-        }
-        nav {
-            background: #333;
-            padding: 10px 0;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            margin: 0;
-            padding: 0;
-        }
-        nav ul li {
-            margin: 0 15px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav ul li a:hover {
-            color: #4CAF50;
-        }
-        main {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-        }
-        img {
-            display: block;
-            margin: 20px auto;
-            border-radius: 10px;
-            max-width: 200px;
-        }
-        h1, h2 {
-            text-align: center;
-        }
-        footer {
-            text-align: center;
-            padding: 15px;
-            background: #eee;
-            margin-top: 30px;
-            font-size: 14px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giới thiệu bản thân</title>
+  <style>
+    html {
+      scroll-behavior: smooth; /* hiệu ứng cuộn mượt */
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #333;
+      padding: 10px;
+      z-index: 1000;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+    section {
+      height: 100vh;
+      padding: 60px 20px;
+      box-sizing: border-box;
+    }
+    section:nth-child(odd) {
+      background-color: #f2f2f2;
+    }
+    section:nth-child(even) {
+      background-color: #ffffff;
+    }
+    h2 {
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Xin chào! Mình là Trần Gia Tuấn Thành</h1>
-    </header>
+  <nav>
+    <ul>
+      <li><a href="#gioithieu">Giới thiệu</a></li>
+      <li><a href="#truong">Trường học</a></li>
+      <li><a href="#sothich">Sở thích</a></li>
+      <li><a href="#lienhe">Liên hệ</a></li>
+    </ul>
+  </nav>
 
-    <!-- Menu -->
-    <nav>
-        <ul>
-            <li><a href="#gioithieu">Giới thiệu</a></li>
-            <li><a href="#sothich">Sở thích</a></li>
-            <li><a href="#lienhe">Liên hệ</a></li>
-        </ul>
-    </nav>
+  <section id="gioithieu">
+    <h2>Giới thiệu</h2>
+    <p>Xin chào! Mình là <b>Trần Gia Tuấn Thành</b>.</p>
+  </section>
 
-    <main>
-        <img src="https://via.placeholder.com/200" alt="Ảnh đại diện">
-        
-        <h2 id="gioithieu">Giới thiệu</h2>
-        <p>Mình là <strong>Trần Gia Tuấn Thành</strong>, 12 tuổi, hiện đang học lớp 7 tại trường Trần Đại Nghĩa.</p>
-        <p>Mình yêu thích đọc sách, học Toán và Tiếng Anh. Ngoài ra, mình cũng quan tâm đến lập trình và công nghệ.</p>
-        
-        <h2 id="sothich">Sở thích</h2>
-        <ul>
-            <li>Đọc sách</li>
-            <li>Học Toán</li>
-            <li>Lập trình C++</li>
-            <li>Bơi lội</li>
-        </ul>
+  <section id="truong">
+    <h2>Trường học</h2>
+    <p>Mình hiện đang học tại <b>trường Đặng Trần Côn</b>.</p>
+  </section>
 
-        <h2 id="lienhe">Liên hệ</h2>
-        <p>Email: <em>tomtuanthanh</em></p>
-    </main>
+  <section id="sothich">
+    <h2>Sở thích</h2>
+    <p>Mình yêu thích đọc sách, học Toán và Tiếng Anh.</p>
+  </section>
 
-    <footer>
-        &copy; 2025 Trần Gia Tuấn Thành. All rights reserved.
-    </footer>
+  <section id="lienhe">
+    <h2>Liên hệ</h2>
+    <p>Email: tomtuanthanh</p>
+  </section>
 </body>
 </html>
