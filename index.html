@@ -3,86 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Giới thiệu bản thân</title>
+  <title>Tóm tắt EQ Đỉnh Cao</title>
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: #333;
-      padding: 10px;
-      z-index: 1000;
-    }
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-    }
-    nav ul li {
-      margin: 0 15px;
-    }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-    }
-    nav ul li a:hover {
-      text-decoration: underline;
-    }
-    section {
-      height: 100vh;
-      padding: 80px 20px 20px 20px;
-      box-sizing: border-box;
-    }
-    section:nth-child(odd) {
-      background-color: #f2f2f2;
-    }
-    section:nth-child(even) {
-      background-color: #ffffff;
-    }
-    h2 {
-      margin-top: 0;
-    }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
+    header { background: #4CAF50; color: white; padding: 15px 20px; text-align: center; }
+    nav { background: #333; padding: 10px; position: sticky; top: 0; }
+    nav a { color: white; margin: 0 10px; text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    section { padding: 40px 20px; border-bottom: 1px solid #ddd; }
+    h2 { color: #4CAF50; }
+    footer { background: #333; color: white; text-align: center; padding: 10px; margin-top: 20px; }
+    html { scroll-behavior: smooth; } /* Cuộn mượt khi bấm menu */
   </style>
 </head>
 <body>
+  <header>
+    <h1>Tóm tắt chi tiết sách EQ Đỉnh Cao</h1>
+    <p>TS. Travis Bradberry</p>
+  </header>
+
   <nav>
-    <ul>
-      <li><a href="#gioithieu">Giới thiệu</a></li>
-      <li><a href="#truong">Trường học</a></li>
-      <li><a href="#sothich">Sở thích</a></li>
-      <li><a href="#lienhe">Liên hệ</a></li>
-    </ul>
+    <a href="#gioi-thieu">Giới thiệu</a>
+    <a href="#eq-la-gi">EQ là gì?</a>
+    <a href="#4-tru-cot">4 Trụ cột EQ</a>
+    <a href="#thoi-quen">Thói quen</a>
+    <a href="#ung-dung">Ứng dụng</a>
+    <a href="#ket-luan">Kết luận</a>
   </nav>
 
-  <section id="gioithieu">
-    <h2>Giới thiệu</h2>
-    <p>Mình tên là Trần Gia Tuấn Thành. Mình sinh ra và lớn lên tại Thành phố Hồ Chí Minh. Từ nhỏ, mình đã rất thích học hỏi, đặc biệt là trong các môn Toán và Tiếng Anh. Mình thích đọc sách để mở rộng vốn hiểu biết và học thêm nhiều điều mới. Ngoài ra, mình còn yêu thích thể thao như bơi lội và đi bộ. Những trải nghiệm này giúp mình vừa rèn luyện sức khỏe vừa có thêm những bài học quý giá trong cuộc sống. Mình mong muốn trong tương lai sẽ phát triển bản thân nhiều hơn nữa.</p>
+  <section id="gioi-thieu">
+    <h2>Giới thiệu sách</h2>
+    <p><strong>EQ Đỉnh Cao</strong> là cuốn sách giúp bạn phát triển trí tuệ cảm xúc thông qua việc xây dựng thói quen hằng ngày. Tác giả là TS. Travis Bradberry, chuyên gia hàng đầu về EQ.</p>
   </section>
 
-  <section id="truong">
-    <h2>Trường học</h2>
-    <p>Hiện tại mình đang là học sinh trường Đặng Trần Côn. Đây là một ngôi trường thân thiện, nơi thầy cô luôn tận tâm giảng dạy và bạn bè thì hòa đồng, vui vẻ. Môi trường học tập ở đây rất tốt, khuyến khích chúng mình rèn luyện kỹ năng tư duy sáng tạo và học hỏi lẫn nhau. Trường còn có nhiều hoạt động ngoại khóa thú vị như văn nghệ, thể thao và các cuộc thi học thuật. Nhờ vậy, mình có cơ hội phát triển toàn diện cả về kiến thức lẫn kỹ năng sống. Mình rất tự hào khi được học tại ngôi trường này.</p>
+  <section id="eq-la-gi">
+    <h2>EQ là gì?</h2>
+    <p>EQ (Emotional Quotient – Trí tuệ cảm xúc) là khả năng nhận biết, hiểu và điều khiển cảm xúc của bản thân cũng như người khác. Người có EQ cao thường giao tiếp hiệu quả, kiểm soát cảm xúc tốt và dễ thành công trong các mối quan hệ.</p>
   </section>
 
-  <section id="sothich">
-    <h2>Sở thích</h2>
-    <p>Mình có nhiều sở thích khác nhau. Trước hết là đọc sách, đặc biệt là sách khoa học và truyện phiêu lưu. Khi đọc, mình cảm thấy như được bước vào một thế giới mới, nơi có vô vàn điều thú vị. Ngoài ra, mình thích học Toán và Tiếng Anh vì hai môn này giúp mình phát triển tư duy và mở rộng tầm nhìn. Thỉnh thoảng, mình còn tham gia bơi lội và đi bộ để rèn luyện sức khỏe. Những hoạt động này không chỉ giúp cơ thể khỏe mạnh mà còn mang lại tinh thần thoải mái sau những giờ học tập căng thẳng.</p>
+  <section id="4-tru-cot">
+    <h2>4 Trụ cột EQ</h2>
+    <ul>
+      <li><strong>Tự nhận thức:</strong> Hiểu rõ cảm xúc của bản thân.</li>
+      <li><strong>Tự quản lý:</strong> Kiểm soát cảm xúc và phản ứng.</li>
+      <li><strong>Nhận thức xã hội:</strong> Hiểu cảm xúc của người khác.</li>
+      <li><strong>Kỹ năng quan hệ:</strong> Xây dựng mối quan hệ tích cực.</li>
+    </ul>
   </section>
 
-  <section id="lienhe">
-    <h2>Liên hệ</h2>
-    <p>Nếu bạn muốn liên hệ với mình, có thể gửi email về địa chỉ: tomtuanthanh. Mình luôn sẵn lòng trao đổi và kết nối với những người bạn mới. Ngoài ra, mình cũng thường xuyên sử dụng các nền tảng học tập trực tuyến để trau dồi thêm kiến thức. Trong tương lai, mình mong có thể tham gia nhiều hoạt động và dự án ý nghĩa để tích lũy thêm kinh nghiệm. Mình tin rằng việc kết nối và giao lưu với mọi người sẽ giúp mình ngày càng trưởng thành hơn, tự tin hơn trên con đường học tập và cuộc sống.</p>
+  <section id="thoi-quen">
+    <h2>Thói quen nâng cao EQ</h2>
+    <p>Ví dụ: Viết nhật ký cảm xúc, hít thở sâu khi căng thẳng, lắng nghe người khác nhiều hơn, đặt mình vào vị trí của họ.</p>
   </section>
+
+  <section id="ung-dung">
+    <h2>Ứng dụng trong đời sống</h2>
+    <ul>
+      <li><strong>Học tập:</strong> Quản lý căng thẳng, tập trung hơn.</li>
+      <li><strong>Công việc:</strong> Làm việc nhóm hiệu quả, lãnh đạo tốt.</li>
+      <li><strong>Quan hệ xã hội:</strong> Gắn kết gia đình, bạn bè bền chặt hơn.</li>
+    </ul>
+  </section>
+
+  <section id="ket-luan">
+    <h2>Kết luận</h2>
+    <p>EQ không phải bẩm sinh mà có thể rèn luyện. Người có EQ cao sẽ thành công và hạnh phúc hơn trong học tập, công việc và cuộc sống.</p>
+  </section>
+
+  <footer>
+    <p>© 2025 - Trang web tóm tắt EQ Đỉnh Cao</p>
+  </footer>
 </body>
 </html>
