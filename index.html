@@ -2,73 +2,63 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Kỹ thuật Cầu lông</title>
+  <title>Trang cá nhân - Trần Gia Tuấn Thành</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
-    h1 { color: darkblue; }
-    h2 { color: darkgreen; margin-top: 40px; }
-    h3 { color: brown; margin-top: 20px; }
-    ul { line-height: 1.8; }
-    a { text-decoration: none; color: darkred; }
-    a:hover { text-decoration: underline; color: blue; }
-    .menu { background: #f2f2f2; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+    body { 
+      margin: 0; 
+      font-family: Arial, sans-serif; 
+      display: flex; 
+      height: 100vh;
+    }
+
+    /* Menu bên trái */
+    .sidebar {
+      width: 220px;
+      background: #2c3e50;
+      color: white;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+    }
+    .sidebar a:hover {
+      background: #34495e;
+    }
+
+    /* Nội dung bên phải */
+    .content {
+      flex: 1;
+      background: #f4f4f4;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
   </style>
 </head>
 <body>
-  <h1>🏸 Tất cả Kỹ thuật Cầu lông</h1>
-  <p>Bấm vào menu bên dưới để đến phần chi tiết:</p>
-
-  <!-- MENU -->
-  <div class="menu">
-    <ul>
-      <li><a href="#serve">Kỹ thuật giao cầu</a></li>
-      <li><a href="#clear">Kỹ thuật đánh cầu cao (Clear)</a></li>
-      <li><a href="#smash">Kỹ thuật đập cầu (Smash)</a></li>
-      <li><a href="#drop">Kỹ thuật bỏ nhỏ (Drop shot)</a></li>
-      <li><a href="#net">Kỹ thuật đánh lưới</a></li>
-      <li><a href="#footwork">Kỹ thuật di chuyển (Footwork)</a></li>
-    </ul>
+  <!-- Menu bên trái -->
+  <div class="sidebar">
+    <h2>📌 Menu</h2>
+    <a href="EQ.html" target="contentFrame">EQ Đỉnh cao</a>
+    <a href="caulong.html" target="contentFrame">Kỹ thuật Cầu lông</a>
   </div>
 
-  <!-- NỘI DUNG -->
-  <h2 id="serve">Kỹ thuật giao cầu</h2>
-  <h3>• Giao cầu cao</h3>
-  <p>Đánh mạnh, đưa cầu cao và xa ra sau sân đối phương để buộc họ lùi lại.</p>
-  <h3>• Giao cầu thấp</h3>
-  <p>Đánh nhẹ, cầu bay sát lưới, rơi gần phía trước sân đối thủ.</p>
-  <h3>• Giao cầu ngang</h3>
-  <p>Đánh nhanh, ngang lưới để làm đối thủ bất ngờ.</p>
-
-  <h2 id="clear">Kỹ thuật đánh cầu cao (Clear)</h2>
-  <h3>• Clear tấn công</h3>
-  <p>Đánh nhanh và mạnh, cầu đi thấp để ép đối thủ lùi ra sau.</p>
-  <h3>• Clear phòng thủ</h3>
-  <p>Đánh cầu cao và sâu về cuối sân, giúp bạn có thời gian chuẩn bị.</p>
-
-  <h2 id="smash">Kỹ thuật đập cầu (Smash)</h2>
-  <h3>• Đập cầu thẳng</h3>
-  <p>Đánh mạnh từ trên cao xuống, đường cầu thẳng, tốc độ nhanh.</p>
-  <h3>• Đập cầu chéo</h3>
-  <p>Đập cầu chéo sân, tạo góc hiểm làm đối thủ khó đỡ.</p>
-
-  <h2 id="drop">Kỹ thuật bỏ nhỏ (Drop shot)</h2>
-  <h3>• Bỏ nhỏ thuận tay</h3>
-  <p>Đánh nhẹ tay, cầu rơi ngay sau lưới, gây bất ngờ cho đối thủ.</p>
-  <h3>• Bỏ nhỏ trái tay</h3>
-  <p>Sử dụng mặt vợt trái tay, đưa cầu rơi sát lưới.</p>
-
-  <h2 id="net">Kỹ thuật đánh lưới</h2>
-  <h3>• Chạm cầu sát lưới</h3>
-  <p>Điều khiển cầu lăn nhẹ qua mép lưới, buộc đối thủ lên cứu.</p>
-  <h3>• Đè cầu lưới</h3>
-  <p>Ép cầu xuống nhanh khi đối thủ đánh trả sát lưới.</p>
-
-  <h2 id="footwork">Kỹ thuật di chuyển (Footwork)</h2>
-  <h3>• Di chuyển 6 góc sân</h3>
-  <p>Điều chỉnh bước chân để đến mọi vị trí: trái, phải, trước, sau, chéo trái, chéo phải.</p>
-  <h3>• Bước chéo (Cross step)</h3>
-  <p>Dùng bước chéo để di chuyển nhanh ra biên.</p>
-  <h3>• Bước nhảy (Split step)</h3>
-  <p>Động tác nhún nhẹ để phản ứng nhanh với hướng cầu.</p>
+  <!-- Nội dung bên phải -->
+  <div class="content">
+    <iframe name="contentFrame" src="EQ.html"></iframe>
+  </div>
 </body>
 </html>
