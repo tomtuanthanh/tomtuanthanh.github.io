@@ -1,64 +1,63 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Trang cá nhân - Trần Gia Tuấn Thành</title>
-  <style>
-    body { 
-      margin: 0; 
-      font-family: Arial, sans-serif; 
-      display: flex; 
-      height: 100vh;
-    }
-
-    /* Menu bên trái */
-    .sidebar {
-      width: 220px;
-      background: #2c3e50;
-      color: white;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-    .sidebar h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 20px;
-    }
-    .sidebar a {
-      display: block;
-      color: white;
-      text-decoration: none;
-      padding: 10px;
-      margin: 5px 0;
-      border-radius: 5px;
-    }
-    .sidebar a:hover {
-      background: #34495e;
-    }
-
-    /* Nội dung bên phải */
-    .content {
-      flex: 1;
-      background: #f4f4f4;
-    }
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Trang của Trần Gia Tuấn Thành</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+        }
+        /* Menu bên trái */
+        .menu {
+            width: 220px;
+            background-color: #2c3e50;
+            color: white;
+            height: 100vh;
+            padding-top: 20px;
+            position: fixed;
+        }
+        .menu h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .menu a {
+            display: block;
+            padding: 12px;
+            text-decoration: none;
+            color: white;
+            border-bottom: 1px solid #34495e;
+        }
+        .menu a:hover {
+            background-color: #16a085;
+        }
+        /* Nội dung */
+        .content {
+            margin-left: 220px;
+            padding: 0;
+            width: calc(100% - 220px);
+            height: 100vh;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
 </head>
 <body>
-  <!-- Menu bên trái -->
-  <div class="sidebar">
-    <h2>📌 Menu</h2>
-    <a href="EQ.html" target="contentFrame">EQ Đỉnh cao</a>
-    <a href="caulong.html" target="contentFrame">Kỹ thuật Cầu lông</a>
-  </div>
+    <!-- Menu -->
+    <div class="menu">
+        <h2>Menu</h2>
+        <a href="EQ.html" target="mainFrame">EQ Đỉnh Cao</a>
+        <a href="caulong.html" target="mainFrame">Kỹ thuật cầu lông</a>
+        <a href="tbk.html" target="mainFrame">Thời khóa biểu</a>
+    </div>
 
-  <!-- Nội dung bên phải -->
-  <div class="content">
-    <iframe name="contentFrame" src="EQ.html"></iframe>
-  </div>
+    <!-- Nội dung load vào iframe -->
+    <div class="content">
+        <iframe name="mainFrame" src="EQ.html"></iframe>
+    </div>
 </body>
 </html>
