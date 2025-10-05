@@ -3,101 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trang của Tôi</title>
+  <title>Trang của Thành</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
+      font-family: Arial, sans-serif;
       display: flex;
-      background-color: #f6f8fc;
-    }
-
-    /* Menu bên trái (phiên bản sáng) */
-    .sidebar {
-      width: 240px;
-      background-color: #e3ecf9;
-      color: #1e293b;
       height: 100vh;
-      display: flex;
-      flex-direction: column;
+    }
+    .menu {
+      width: 250px;
+      background-color: #f4f4f4;
       padding: 20px;
-      border-right: 2px solid #cbd5e1;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.1);
     }
-
-    .sidebar h2 {
+    .menu h2 {
       text-align: center;
-      margin-bottom: 25px;
-      font-size: 22px;
-      color: #0f172a;
+      color: #333;
     }
-
-    .sidebar a {
-      color: #0f172a;
-      text-decoration: none;
-      margin: 8px 0;
-      padding: 10px;
-      border-radius: 6px;
+    .menu a {
       display: block;
-      transition: all 0.3s ease;
-      background-color: #f1f5f9;
-      border: 1px solid transparent;
+      padding: 10px;
+      text-decoration: none;
+      color: #333;
+      border-radius: 8px;
+      margin: 5px 0;
+      transition: background 0.3s;
     }
-
-    .sidebar a:hover,
-    .sidebar a.active {
-      background-color: #dbeafe;
-      border-color: #93c5fd;
+    .menu a:hover {
+      background-color: #d0eaff;
     }
-
-    /* Phần nội dung chính */
-    .content {
-      flex: 1;
-      padding: 0;
-    }
-
     iframe {
-      width: 100%;
+      flex: 1;
+      border: none;
       height: 100vh;
-      border: none;
-      background-color: #f8fafc;
-    }
-
-    hr {
-      border: none;
-      border-top: 1px solid #cbd5e1;
-      margin: 15px 0;
     }
   </style>
 </head>
 <body>
-  <div class="sidebar">
-    <h2>Trang của Tôi</h2>
-    <a href="caulong.html" target="mainFrame">Kỹ Thuật Cầu Lông</a>
-    <a href="doitruong.html" target="mainFrame">Đội Trưởng</a>
-    <a href="tkb.html" target="mainFrame">TKB</a>
-    <hr>
-    <a href="lop8.html" target="mainFrame">Lớp 8</a>
-    <a href="lop9.html" target="mainFrame">Lớp 9</a>
-    <a href="cap3.html" target="mainFrame">Cấp 3</a>
-    <a href="daihoc.html" target="mainFrame">Đại Học</a>
+  <div class="menu">
+    <h2>MENU</h2>
+    <a href="tkb.html" target="content">Thời khóa biểu</a>
+    <a href="caulong.html" target="content">Kỹ thuật cầu lông</a>
+    <a href="doitruong.html" target="content">Đội trưởng quản lý cấp trung</a>
+    <a href="lop8.html" target="content">Lớp 8</a>
+    <a href="lop9.html" target="content">Lớp 9</a>
+    <a href="cap3.html" target="content">Cấp 3</a>
+    <a href="daihoc.html" target="content">Đại học</a>
   </div>
-
-  <div class="content">
-    <iframe name="mainFrame" src="tkb.html"></iframe>
-  </div>
-
-  <script>
-    // Thêm hiệu ứng active cho menu
-    const links = document.querySelectorAll('.sidebar a');
-    links.forEach(link => {
-      link.addEventListener('click', () => {
-        links.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-      });
-    });
-  </script>
+  <iframe name="content" src="tkb.html"></iframe>
 </body>
 </html>
