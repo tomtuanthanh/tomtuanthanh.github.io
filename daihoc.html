@@ -2,22 +2,31 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Kế hoạch đại học</title>
+  <title>Đại Học</title>
   <style>
-    body { font-family: Arial; padding: 20px; }
-    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-    th { background-color: #2c3e50; color: white; }
-    input, select { width: 100%; }
+    body { font-family: Arial; background-color: #f1f5f9; padding: 20px; }
+    table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; }
+    th, td { padding: 12px; border-bottom: 1px solid #e2e8f0; }
+    th { background-color: #e2e8f0; }
+    select, input { padding: 5px; border-radius: 5px; border: 1px solid #cbd5e1; }
   </style>
 </head>
 <body>
-  <h1>Kế hoạch học tập đại học</h1>
+  <h1>Kế hoạch Đại học</h1>
   <table>
-    <tr><th>STT</th><th>Năm học</th><th>Mục tiêu</th><th>Trạng thái</th><th>Ghi chú</th></tr>
-    <tr><td>1</td><td>Năm 1</td><td>Hoàn thành học phần đại cương</td><td><select><option>Chưa bắt đầu</option><option>Đang học</option><option>Hoàn thành</option></select></td><td><input type="text"></td></tr>
-    <tr><td>2</td><td>Năm 2</td><td>Tham gia CLB / thực tập ngắn hạn</td><td><select><option>Chưa bắt đầu</option><option>Đang học</option><option>Hoàn thành</option></select></td><td><input type="text"></td></tr>
-    <tr><td>3</td><td>Năm 3</td><td>Thực tập và hoàn thiện kỹ năng nghề</td><td><select><option>Chưa bắt đầu</option><option>Đang học</option><option>Hoàn thành</option></select></td><td><input type="text"></td></tr>
+    <tr><th>Mục tiêu</th><th>Trạng thái</th><th>Ghi chú</th></tr>
+    <tr><td>Nghiên cứu chuyên ngành</td><td><select id="status1"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td><td><input id="note1"></td></tr>
+    <tr><td>Thực tập năm 3</td><td><select id="status2"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td><td><input id="note2"></td></tr>
+    <tr><td>Chứng chỉ TOEIC 800+</td><td><select id="status3"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td><td><input id="note3"></td></tr>
   </table>
+  <script>
+    const ids=["status1","note1","status2","note2","status3","note3"];
+    ids.forEach(id=>{
+      const el=document.getElementById(id);
+      const val=localStorage.getItem("daihoc_"+id);
+      if(val) el.value=val;
+      el.addEventListener("input",()=>localStorage.setItem("daihoc_"+id,el.value));
+    });
+  </script>
 </body>
 </html>
