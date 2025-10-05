@@ -1,20 +1,69 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Cấp 3</title>
-  <style>
-    body { font-family: Arial; padding: 20px; }
-    table { border-collapse: collapse; width: 100%; }
-    th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
-  </style>
+<meta charset="UTF-8">
+<title>Cấp 3</title>
+<style>
+table { width: 100%; border-collapse: collapse; }
+th, td { border: 1px solid #999; padding: 8px; text-align: center; }
+th { background: #f0f0f0; }
+</style>
+<script>
+function saveData() {
+  const rows = document.querySelectorAll("tbody tr");
+  let data = [];
+  rows.forEach(r => {
+    data.push({
+      stt: r.cells[0].textContent,
+      name: r.cells[1].textContent,
+      status: r.cells[2].querySelector("select").value,
+      date: r.cells[3].querySelector("input").value,
+      note: r.cells[4].querySelector("input").value
+    });
+  });
+  localStorage.setItem("cap3Data", JSON.stringify(data));
+}
+function loadData() {
+  const data = JSON.parse(localStorage.getItem("cap3Data") || "[]");
+  if (data.length === 0) return;
+  const rows = document.querySelectorAll("tbody tr");
+  data.forEach((item, i) => {
+    rows[i].cells[2].querySelector("select").value = item.status;
+    rows[i].cells[3].querySelector("input").value = item.date;
+    rows[i].cells[4].querySelector("input").value = item.note;
+  });
+}
+window.onload = loadData;
+</script>
 </head>
 <body>
-  <h2>Mục tiêu - Cấp 3</h2>
-  <table>
-    <tr><th>Mục tiêu</th><th>Trạng thái</th><th>Ghi chú</th></tr>
-    <tr><td>Thi vào trường chuyên</td><td><select><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td><td><input></td></tr>
-    <tr><td>Hoàn thành kỹ năng tin học</td><td><select><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td><td><input></td></tr>
-  </table>
+<h2>Kế hoạch Cấp 3</h2>
+<table>
+<thead>
+<tr><th>STT</th><th>Nội dung</th><th>Trạng thái</th><th>Ngày hoàn thành</th><th>Ghi chú</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td><td>Hoàn thành học kỳ I và II lớp 10 với điểm TB ≥ 8.0</td>
+<td><select onchange="saveData()"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
+<td><input type="date" onchange="saveData()"></td><td><input type="text" onchange="saveData()"></td>
+</tr>
+<tr>
+<td>2</td><td>Tham gia CLB học thuật hoặc thể thao của trường</td>
+<td><select onchange="saveData()"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
+<td><input type="date" onchange="saveData()"></td><td><input type="text" onchange="saveData()"></td>
+</tr>
+<tr>
+<td>3</td><td>Thi IELTS ≥ 5.5 hoặc tương đương</td>
+<td><select onchange="saveData()"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
+<td><input type="date" onchange="saveData()"></td><td><input type="text" onchange="saveData()"></td>
+</tr>
+<tr>
+<td>4</td><td>Thực hiện 1 dự án học tập hoặc khoa học nhỏ</td>
+<td><select onchange="saveData()"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
+<td><input type="date" onchange="saveData()"></td><td><input type="text" onchange="saveData()"></td>
+</tr>
+</tbody>
+</table>
 </body>
 </html>

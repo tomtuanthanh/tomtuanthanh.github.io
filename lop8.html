@@ -1,21 +1,69 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Lớp 8</title>
-  <style>
-    body { font-family: Arial; padding: 20px; }
-    table { width: 100%; border-collapse: collapse; }
-    td, th { border: 1px solid #ccc; padding: 10px; text-align: center; }
-    select, input { width: 100%; }
-  </style>
+<meta charset="UTF-8">
+<title>Lớp 8</title>
+<style>
+  table { width: 100%; border-collapse: collapse; }
+  th, td { border: 1px solid #999; padding: 8px; text-align: center; }
+  th { background: #f0f0f0; }
+</style>
+<script>
+function saveData() {
+  const rows = document.querySelectorAll("tbody tr");
+  let data = [];
+  rows.forEach(r => {
+    data.push({
+      stt: r.cells[0].textContent,
+      name: r.cells[1].textContent,
+      status: r.cells[2].querySelector("select").value,
+      date: r.cells[3].querySelector("input").value,
+      note: r.cells[4].querySelector("input").value
+    });
+  });
+  localStorage.setItem("lop8Data", JSON.stringify(data));
+}
+function loadData() {
+  const data = JSON.parse(localStorage.getItem("lop8Data") || "[]");
+  if (data.length === 0) return;
+  const rows = document.querySelectorAll("tbody tr");
+  data.forEach((item, i) => {
+    rows[i].cells[2].querySelector("select").value = item.status;
+    rows[i].cells[3].querySelector("input").value = item.date;
+    rows[i].cells[4].querySelector("input").value = item.note;
+  });
+}
+window.onload = loadData;
+</script>
 </head>
 <body>
-  <h2>Kế hoạch học tập - Lớp 8</h2>
-  <table>
-    <tr><th>Mục tiêu</th><th>Trạng thái</th><th>Ghi chú</th></tr>
-    <tr><td>Hoàn thành chương trình Toán</td><td><select><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td><td><input></td></tr>
-    <tr><td>Tham gia CLB cầu lông</td><td><select><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td><td><input></td></tr>
-  </table>
+<h2>Kế hoạch Lớp 8</h2>
+<table>
+  <thead>
+    <tr>
+      <th>STT</th><th>Nội dung</th><th>Trạng thái</th><th>Ngày hoàn thành</th><th>Ghi chú</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td><td>Hoàn thành học kỳ I và II với điểm trung bình ≥ 8.0</td>
+      <td><select onchange="saveData()"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
+      <td><input type="date" onchange="saveData()"></td>
+      <td><input type="text" onchange="saveData()"></td>
+    </tr>
+    <tr>
+      <td>2</td><td>Tham gia ít nhất 1 hoạt động ngoại khóa của trường</td>
+      <td><select onchange="saveData()"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
+      <td><input type="date" onchange="saveData()"></td>
+      <td><input type="text" onchange="saveData()"></td>
+    </tr>
+    <tr>
+      <td>3</td><td>Làm quen với lập trình (C++ hoặc Python cơ bản)</td>
+      <td><select onchange="saveData()"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
+      <td><input type="date" onchange="saveData()"></td>
+      <td><input type="text" onchange="saveData()"></td>
+    </tr>
+  </tbody>
+</table>
 </body>
 </html>

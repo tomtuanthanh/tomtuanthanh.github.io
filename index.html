@@ -2,58 +2,37 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trang chính</title>
 <style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  display: flex;
-  background-color: #f8faff;
-  color: #222;
-}
-nav {
-  width: 240px;
-  background-color: #e9f0ff;
-  padding: 20px;
-  height: 100vh;
-  box-shadow: 2px 0 6px rgba(0,0,0,0.1);
-}
-nav h2 {
-  color: #2a4d9b;
-  text-align: center;
-  margin-bottom: 25px;
-}
-nav a {
-  display: block;
-  color: #2a4d9b;
-  text-decoration: none;
-  padding: 10px 15px;
-  border-radius: 8px;
-  margin: 6px 0;
-  transition: background-color 0.3s, transform 0.2s;
-}
-nav a:hover {
-  background-color: #d0e0ff;
-  transform: translateX(4px);
-}
-iframe {
-  flex: 1;
-  height: 100vh;
-  border: none;
-}
+  body { margin: 0; font-family: Arial; display: flex; height: 100vh; }
+  .menu {
+    width: 220px; background: #f8f9fa; padding: 20px;
+    border-right: 2px solid #ccc; position: fixed; top: 0; left: 0; height: 100%;
+  }
+  .menu h2 { text-align: center; color: #333; margin-bottom: 20px; }
+  .menu a {
+    display: block; color: #007bff; text-decoration: none;
+    padding: 10px; margin: 5px 0; border-radius: 6px;
+  }
+  .menu a:hover { background: #007bff; color: white; }
+  .content { margin-left: 240px; padding: 20px; width: 100%; height: 100vh; }
+  iframe { width: 100%; height: 100%; border: none; }
 </style>
 </head>
 <body>
-<nav>
-  <h2>MENU</h2>
-  <a href="lop8.html" target="content">Lớp 8</a>
-  <a href="lop9.html" target="content">Lớp 9</a>
-  <a href="cap3.html" target="content">Cấp 3</a>
-  <a href="daihoc.html" target="content">Đại học</a>
-  <a href="doitruong.html" target="content">Đội trưởng</a>
-  <a href="caulong.html" target="content">Cầu lông</a>
-</nav>
+  <div class="menu">
+    <h2>MENU</h2>
+    <a href="doitruong.html" target="content">Đội trưởng</a>
+    <a href="caulong.html" target="content">Cầu lông</a>
+    <a href="lop8.html" target="content">Lớp 8</a>
+    <a href="lop9.html" target="content">Lớp 9</a>
+    <a href="cap3.html" target="content">Cấp 3</a>
+    <a href="daihoc.html" target="content">Đại học</a>
+  </div>
 
-<iframe name="content" src="lop8.html"></iframe>
+  <div class="content">
+    <iframe name="content" src="doitruong.html"></iframe>
+  </div>
 </body>
 </html>

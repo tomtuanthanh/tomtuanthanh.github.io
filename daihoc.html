@@ -4,54 +4,66 @@
 <meta charset="UTF-8">
 <title>Đại học</title>
 <style>
-body { font-family: Arial; background: #fdfdfd; margin: 40px; line-height: 1.6; }
-table { border-collapse: collapse; width: 100%; margin-top: 20px; }
-th, td { border: 1px solid #aaa; padding: 8px; text-align: center; }
-th { background-color: #e6f0ff; }
-select, input { padding: 4px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { border: 1px solid #999; padding: 8px; text-align: center; }
+th { background: #f0f0f0; }
 </style>
+<script>
+function saveData() {
+  const rows = document.querySelectorAll("tbody tr");
+  let data = [];
+  rows.forEach(r => {
+    data.push({
+      stt: r.cells[0].textContent,
+      name: r.cells[1].textContent,
+      status: r.cells[2].querySelector("select").value,
+      date: r.cells[3].querySelector("input").value,
+      note: r.cells[4].querySelector("input").value
+    });
+  });
+  localStorage.setItem("daihocData", JSON.stringify(data));
+}
+function loadData() {
+  const data = JSON.parse(localStorage.getItem("daihocData") || "[]");
+  if (data.length === 0) return;
+  const rows = document.querySelectorAll("tbody tr");
+  data.forEach((item, i) => {
+    rows[i].cells[2].querySelector("select").value = item.status;
+    rows[i].cells[3].querySelector("input").value = item.date;
+    rows[i].cells[4].querySelector("input").value = item.note;
+  });
+}
+window.onload = loadData;
+</script>
 </head>
 <body>
-<h2>Đại học</h2>
-<p>Em dự định theo học ngành <strong>Công nghệ thông tin</strong>. Trong suốt 4 năm đại học, em sẽ phát triển cả kỹ năng chuyên môn lẫn kỹ năng mềm.</p>
-
+<h2>Kế hoạch Đại học</h2>
 <table>
-  <tr>
-    <th>Năm học</th>
-    <th>Trạng thái</th>
-    <th>Ghi chú</th>
-  </tr>
-  <tr>
-    <td>Năm 1 - Làm quen môi trường, học nền tảng</td>
-    <td><select id="status1"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
-    <td><input id="note1" type="text" placeholder="Ghi chú..."></td>
-  </tr>
-  <tr>
-    <td>Năm 2 - Học chuyên ngành và làm dự án nhỏ</td>
-    <td><select id="status2"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
-    <td><input id="note2" type="text" placeholder="Ghi chú..."></td>
-  </tr>
-  <tr>
-    <td>Năm 3 - Thực tập và chứng chỉ nghề nghiệp</td>
-    <td><select id="status3"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
-    <td><input id="note3" type="text" placeholder="Ghi chú..."></td>
-  </tr>
-  <tr>
-    <td>Năm 4 - Đồ án tốt nghiệp, ứng tuyển việc làm</td>
-    <td><select id="status4"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
-    <td><input id="note4" type="text" placeholder="Ghi chú..."></td>
-  </tr>
+<thead>
+<tr><th>STT</th><th>Nội dung</th><th>Trạng thái</th><th>Ngày hoàn thành</th><th>Ghi chú</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td><td><b>Năm 1:</b> Làm quen với môi trường học, tham gia CLB, đạt GPA ≥ 3.0</td>
+<td><select onchange="saveData()"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
+<td><input type="date" onchange="saveData()"></td><td><input type="text" onchange="saveData()"></td>
+</tr>
+<tr>
+<td>2</td><td><b>Năm 2:</b> Hoàn thành các môn chuyên ngành cơ bản, thực tập ngắn hạn</td>
+<td><select onchange="saveData()"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
+<td><input type="date" onchange="saveData()"></td><td><input type="text" onchange="saveData()"></td>
+</tr>
+<tr>
+<td>3</td><td><b>Năm 3:</b> Làm đồ án, tham gia nghiên cứu hoặc cuộc thi học thuật</td>
+<td><select onchange="saveData()"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
+<td><input type="date" onchange="saveData()"></td><td><input type="text" onchange="saveData()"></td>
+</tr>
+<tr>
+<td>4</td><td><b>Năm 4:</b> Hoàn tất khóa luận tốt nghiệp và tìm việc làm phù hợp</td>
+<td><select onchange="saveData()"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
+<td><input type="date" onchange="saveData()"></td><td><input type="text" onchange="saveData()"></td>
+</tr>
+</tbody>
 </table>
-
-<script>
-for (let i = 1; i <= 4; i++) {
-  const status = document.getElementById("status" + i);
-  const note = document.getElementById("note" + i);
-  status.value = localStorage.getItem("daihoc_status" + i) || "Chưa hoàn thành";
-  note.value = localStorage.getItem("daihoc_note" + i) || "";
-  status.onchange = () => localStorage.setItem("daihoc_status" + i, status.value);
-  note.oninput = () => localStorage.setItem("daihoc_note" + i, note.value);
-}
-</script>
 </body>
 </html>

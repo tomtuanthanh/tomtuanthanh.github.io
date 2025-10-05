@@ -1,21 +1,69 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Kỹ thuật cầu lông</title>
-  <style>
-    body { font-family: Arial; padding: 20px; line-height: 1.6; }
-    h2, h3 { color: #2e7d32; }
-  </style>
+<meta charset="UTF-8">
+<title>Cầu lông</title>
+<style>
+table { width: 100%; border-collapse: collapse; }
+th, td { border: 1px solid #999; padding: 8px; text-align: center; }
+th { background: #f0f0f0; }
+</style>
+<script>
+function saveData() {
+  const rows = document.querySelectorAll("tbody tr");
+  let data = [];
+  rows.forEach(r => {
+    data.push({
+      stt: r.cells[0].textContent,
+      name: r.cells[1].textContent,
+      status: r.cells[2].querySelector("select").value,
+      date: r.cells[3].querySelector("input").value,
+      note: r.cells[4].querySelector("input").value
+    });
+  });
+  localStorage.setItem("caulongData", JSON.stringify(data));
+}
+function loadData() {
+  const data = JSON.parse(localStorage.getItem("caulongData") || "[]");
+  if (data.length === 0) return;
+  const rows = document.querySelectorAll("tbody tr");
+  data.forEach((item, i) => {
+    rows[i].cells[2].querySelector("select").value = item.status;
+    rows[i].cells[3].querySelector("input").value = item.date;
+    rows[i].cells[4].querySelector("input").value = item.note;
+  });
+}
+window.onload = loadData;
+</script>
 </head>
 <body>
-  <h2>Kỹ thuật cầu lông cơ bản</h2>
-  <ul>
-    <li><b>Phát cầu:</b> Phát thấp, phát cao, phát ngang.</li>
-    <li><b>Đập cầu:</b> Đánh cầu mạnh xuống sân đối thủ.</li>
-    <li><b>Ve cầu:</b> Lùi về phía sau và đánh cầu cao về cuối sân.</li>
-    <li><b>Cắt cầu:</b> Đánh nhẹ tạo đường cầu xoáy và rơi gần lưới.</li>
-    <li><b>Phòng thủ:</b> Giữ tư thế thấp, phản xạ nhanh.</li>
-  </ul>
+<h2>Kỹ thuật Cầu lông</h2>
+<table>
+<thead>
+<tr><th>STT</th><th>Nội dung</th><th>Trạng thái</th><th>Ngày hoàn thành</th><th>Ghi chú</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td><td>Cầm vợt và di chuyển cơ bản</td>
+<td><select onchange="saveData()"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
+<td><input type="date" onchange="saveData()"></td><td><input type="text" onchange="saveData()"></td>
+</tr>
+<tr>
+<td>2</td><td>Kỹ thuật giao cầu và đập cầu</td>
+<td><select onchange="saveData()"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
+<td><input type="date" onchange="saveData()"></td><td><input type="text" onchange="saveData()"></td>
+</tr>
+<tr>
+<td>3</td><td>Phối hợp đánh đôi và chiến thuật cơ bản</td>
+<td><select onchange="saveData()"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
+<td><input type="date" onchange="saveData()"></td><td><input type="text" onchange="saveData()"></td>
+</tr>
+<tr>
+<td>4</td><td>Luyện phản xạ và phòng thủ</td>
+<td><select onchange="saveData()"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
+<td><input type="date" onchange="saveData()"></td><td><input type="text" onchange="saveData()"></td>
+</tr>
+</tbody>
+</table>
 </body>
 </html>

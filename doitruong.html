@@ -1,45 +1,69 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Đội trưởng quản lý cấp trung</title>
-  <style>
-    body {
-      font-family: Arial;
-      padding: 20px;
-      line-height: 1.6;
-    }
-    h2 {
-      color: #1e88e5;
-      margin-bottom: 20px;
-    }
-    p {
-      text-align: justify;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Đội trưởng</title>
+<style>
+table { width: 100%; border-collapse: collapse; }
+th, td { border: 1px solid #999; padding: 8px; text-align: center; }
+th { background: #f0f0f0; }
+</style>
+<script>
+function saveData() {
+  const rows = document.querySelectorAll("tbody tr");
+  let data = [];
+  rows.forEach(r => {
+    data.push({
+      stt: r.cells[0].textContent,
+      name: r.cells[1].textContent,
+      status: r.cells[2].querySelector("select").value,
+      date: r.cells[3].querySelector("input").value,
+      note: r.cells[4].querySelector("input").value
+    });
+  });
+  localStorage.setItem("doitruongData", JSON.stringify(data));
+}
+function loadData() {
+  const data = JSON.parse(localStorage.getItem("doitruongData") || "[]");
+  if (data.length === 0) return;
+  const rows = document.querySelectorAll("tbody tr");
+  data.forEach((item, i) => {
+    rows[i].cells[2].querySelector("select").value = item.status;
+    rows[i].cells[3].querySelector("input").value = item.date;
+    rows[i].cells[4].querySelector("input").value = item.note;
+  });
+}
+window.onload = loadData;
+</script>
 </head>
 <body>
-  <h2>Giới thiệu sách "Đội trưởng quản lý cấp trung"</h2>
-
-  <p>
-    Cuốn sách <b>“Đội trưởng quản lý cấp trung”</b> giúp người đọc hiểu rõ hơn về vai trò của một nhà lãnh đạo ở cấp trung — 
-    những người đóng vai trò kết nối giữa cấp lãnh đạo và nhân viên. Cuốn sách tập trung vào việc giúp đội trưởng 
-    phát triển tư duy lãnh đạo, kỹ năng quản lý con người và kỹ năng truyền đạt hiệu quả.
-  </p>
-
-  <p>
-    Nội dung được chia thành ba phần chính:
-  </p>
-
-  <ul>
-    <li><b>Phần 1:</b> Xây dựng đội nhóm mạnh, tạo động lực và phát triển văn hóa làm việc tích cực.</li>
-    <li><b>Phần 2:</b> Kỹ năng giao tiếp, lắng nghe, phản hồi và huấn luyện nhân viên đạt hiệu quả cao.</li>
-    <li><b>Phần 3:</b> Phát triển tư duy lãnh đạo, xử lý áp lực và đưa ra quyết định trong tình huống khó khăn.</li>
-  </ul>
-
-  <p>
-    Đây là cuốn sách phù hợp cho những ai đang hoặc sẽ đảm nhiệm vai trò lãnh đạo nhóm, giúp người đọc
-    có cái nhìn thực tế, sâu sắc và chuyên nghiệp hơn trong công việc quản lý.
-  </p>
+<h2>Kỹ năng Đội trưởng</h2>
+<table>
+<thead>
+<tr><th>STT</th><th>Nội dung</th><th>Trạng thái</th><th>Ngày hoàn thành</th><th>Ghi chú</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td><td>Kỹ năng lãnh đạo nhóm</td>
+<td><select onchange="saveData()"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
+<td><input type="date" onchange="saveData()"></td><td><input type="text" onchange="saveData()"></td>
+</tr>
+<tr>
+<td>2</td><td>Kỹ năng giao tiếp và thuyết trình</td>
+<td><select onchange="saveData()"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
+<td><input type="date" onchange="saveData()"></td><td><input type="text" onchange="saveData()"></td>
+</tr>
+<tr>
+<td>3</td><td>Tổ chức hoạt động tập thể</td>
+<td><select onchange="saveData()"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
+<td><input type="date" onchange="saveData()"></td><td><input type="text" onchange="saveData()"></td>
+</tr>
+<tr>
+<td>4</td><td>Giải quyết mâu thuẫn trong nhóm</td>
+<td><select onchange="saveData()"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
+<td><input type="date" onchange="saveData()"></td><td><input type="text" onchange="saveData()"></td>
+</tr>
+</tbody>
+</table>
 </body>
 </html>
