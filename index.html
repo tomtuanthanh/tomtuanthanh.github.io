@@ -2,72 +2,62 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Trang của Tôi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang cá nhân của tôi</title>
   <style>
     body {
+      display: flex;
       margin: 0;
       font-family: Arial, sans-serif;
-      display: flex;
-      background-color: #f4f7fb;
-    }
-    .sidebar {
-      width: 230px;
-      background-color: #eaf0fa;
       height: 100vh;
+    }
+    nav {
+      width: 250px;
+      background-color: #1e3a8a;
+      color: white;
       padding: 20px;
-      box-shadow: 2px 0 6px rgba(0,0,0,0.1);
+      box-sizing: border-box;
       position: fixed;
+      height: 100%;
       overflow-y: auto;
     }
-    .sidebar h2 {
-      color: #003366;
+    nav h2 {
       text-align: center;
-      margin-bottom: 20px;
+      color: #fff;
     }
-    .sidebar ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    .sidebar ul li {
-      margin: 12px 0;
-    }
-    .sidebar ul li a {
-      text-decoration: none;
-      color: #003366;
-      font-weight: bold;
+    nav a {
       display: block;
       padding: 10px;
+      margin: 6px 0;
+      color: #fff;
+      text-decoration: none;
       border-radius: 8px;
-      transition: 0.2s;
+      transition: background 0.2s;
     }
-    .sidebar ul li a:hover {
-      background-color: #d8e4f7;
+    nav a:hover {
+      background-color: #3b82f6;
     }
     iframe {
       flex: 1;
-      margin-left: 250px;
-      width: calc(100% - 250px);
-      height: 100vh;
       border: none;
-      background-color: white;
+      margin-left: 250px;
+      height: 100vh;
     }
   </style>
 </head>
 <body>
-  <div class="sidebar">
-    <h2>Trang của Tôi</h2>
-    <ul>
-      <li><a href="doitruong.html" target="content">Đội Trưởng</a></li>
-      <li><a href="caulong.html" target="content">Kỹ Thuật Cầu Lông</a></li>
-      <li><a href="lop8.html" target="content">Lớp 8</a></li>
-      <li><a href="lop9.html" target="content">Lớp 9</a></li>
-      <li><a href="cap3.html" target="content">Cấp 3</a></li>
-      <li><a href="daihoc.html" target="content">Đại Học</a></li>
-      <li><a href="dethitoan/dethi10.html" target="content">Đề Thi Lớp 10</a></li> <!-- Đã sửa -->
-      <li><a href="toptruong.html" target="content">Top 10 Trường Cấp 3</a></li>
-    </ul>
-  </div>
+  <nav>
+    <h2>MENU</h2>
+    <a href="caulong.html" target="contentFrame">Cầu lông</a>
+    <a href="doitruong.html" target="contentFrame">Đội trưởng</a>
+    <a href="lop8.html" target="contentFrame">Lớp 8</a>
+    <a href="lop9.html" target="contentFrame">Lớp 9</a>
+    <a href="cap3.html" target="contentFrame">Cấp 3</a>
+    <a href="daihoc.html" target="contentFrame">Đại học</a>
+    <a href="toptruong.html" target="contentFrame">Top Trường</a>
+    <a href="dethitoan/dethitoan.html" target="contentFrame">Đề thi Toán</a>
+  </nav>
 
-  <iframe name="content" src="daihoc.html"></iframe>
+  <iframe name="contentFrame" src="caulong.html"></iframe>
 </body>
 </html>
