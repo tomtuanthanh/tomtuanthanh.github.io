@@ -2,62 +2,76 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trang cá nhân của tôi</title>
+  <title>Trang chính</title>
   <style>
     body {
-      display: flex;
       margin: 0;
       font-family: Arial, sans-serif;
-      height: 100vh;
+      background-color: #f0f2f5;
+      overflow: hidden;
     }
-    nav {
-      width: 250px;
-      background-color: #1e3a8a;
+    #menu {
+      width: 200px;
+      background-color: #243b7a;
       color: white;
-      padding: 20px;
-      box-sizing: border-box;
       position: fixed;
+      top: 0;
+      left: 0;
       height: 100%;
-      overflow-y: auto;
+      padding-top: 20px;
     }
-    nav h2 {
+    #menu h3 {
       text-align: center;
-      color: #fff;
+      margin-bottom: 20px;
+      color: white;
     }
-    nav a {
+    #menu a {
       display: block;
-      padding: 10px;
-      margin: 6px 0;
-      color: #fff;
+      color: white;
       text-decoration: none;
-      border-radius: 8px;
-      transition: background 0.2s;
+      padding: 10px 20px;
+      transition: background 0.3s;
     }
-    nav a:hover {
-      background-color: #3b82f6;
+    #menu a:hover {
+      background-color: #1a2d5c;
+    }
+    #menu a.active {
+      background-color: #16244b;
     }
     iframe {
-      flex: 1;
+      position: absolute;
+      top: 0;
+      left: 200px;
+      width: calc(100% - 200px);
+      height: 100%;
       border: none;
-      margin-left: 250px;
-      height: 100vh;
+      background-color: white;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <h2>MENU</h2>
-    <a href="caulong.html" target="contentFrame">Cầu lông</a>
-    <a href="doitruong.html" target="contentFrame">Đội trưởng</a>
-    <a href="lop8.html" target="contentFrame">Lớp 8</a>
-    <a href="lop9.html" target="contentFrame">Lớp 9</a>
-    <a href="cap3.html" target="contentFrame">Cấp 3</a>
-    <a href="daihoc.html" target="contentFrame">Đại học</a>
-    <a href="toptruong.html" target="contentFrame">Top Trường</a>
-    <a href="dethitoan/dethitoan.html" target="contentFrame">Đề thi Toán</a>
-  </nav>
+  <div id="menu">
+    <h3>MENU</h3>
+    <a href="caulong.html" target="mainFrame">Cầu lông</a>
+    <a href="doitruong.html" target="mainFrame">Đội trường</a>
+    <a href="lop8.html" target="mainFrame">Lớp 8</a>
+    <a href="lop9.html" target="mainFrame">Lớp 9</a>
+    <a href="cap3.html" target="mainFrame">Cấp 3</a>
+    <a href="daihoc.html" target="mainFrame">Đại học</a>
+    <a href="toptruong.html" target="mainFrame">Top Trường</a>
+    <a href="dethitoan.html" target="mainFrame">Đề Toán</a>
+  </div>
 
-  <iframe name="contentFrame" src="caulong.html"></iframe>
+  <iframe name="mainFrame" src="caulong.html"></iframe>
+
+  <script>
+    const links = document.querySelectorAll("#menu a");
+    links.forEach(link => {
+      link.addEventListener("click", () => {
+        links.forEach(l => l.classList.remove("active"));
+        link.classList.add("active");
+      });
+    });
+  </script>
 </body>
 </html>
