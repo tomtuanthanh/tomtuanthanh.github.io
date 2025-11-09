@@ -4,66 +4,27 @@
 <meta charset="UTF-8">
 <title>Đại học</title>
 <style>
-table { width: 100%; border-collapse: collapse; }
-th, td { border: 1px solid #999; padding: 8px; text-align: center; }
-th { background: #f0f0f0; }
+body {margin:0; font-family:Arial; display:flex; background:#f8f8f8;}
+nav {width:200px; background:#2c3e50; color:white; height:100vh; position:fixed; padding-top:20px;}
+nav a {color:white; text-decoration:none; display:block; padding:10px 20px;}
+nav a:hover {background:#34495e;}
+main {margin-left:220px; padding:20px; width:100%;}
 </style>
-<script>
-function saveData() {
-  const rows = document.querySelectorAll("tbody tr");
-  let data = [];
-  rows.forEach(r => {
-    data.push({
-      stt: r.cells[0].textContent,
-      name: r.cells[1].textContent,
-      status: r.cells[2].querySelector("select").value,
-      date: r.cells[3].querySelector("input").value,
-      note: r.cells[4].querySelector("input").value
-    });
-  });
-  localStorage.setItem("daihocData", JSON.stringify(data));
-}
-function loadData() {
-  const data = JSON.parse(localStorage.getItem("daihocData") || "[]");
-  if (data.length === 0) return;
-  const rows = document.querySelectorAll("tbody tr");
-  data.forEach((item, i) => {
-    rows[i].cells[2].querySelector("select").value = item.status;
-    rows[i].cells[3].querySelector("input").value = item.date;
-    rows[i].cells[4].querySelector("input").value = item.note;
-  });
-}
-window.onload = loadData;
-</script>
 </head>
 <body>
-<h2>Kế hoạch Đại học</h2>
-<table>
-<thead>
-<tr><th>STT</th><th>Nội dung</th><th>Trạng thái</th><th>Ngày hoàn thành</th><th>Ghi chú</th></tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td><td><b>Năm 1:</b> Làm quen với môi trường học, tham gia CLB, đạt GPA ≥ 3.0</td>
-<td><select onchange="saveData()"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
-<td><input type="date" onchange="saveData()"></td><td><input type="text" onchange="saveData()"></td>
-</tr>
-<tr>
-<td>2</td><td><b>Năm 2:</b> Hoàn thành các môn chuyên ngành cơ bản, thực tập ngắn hạn</td>
-<td><select onchange="saveData()"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
-<td><input type="date" onchange="saveData()"></td><td><input type="text" onchange="saveData()"></td>
-</tr>
-<tr>
-<td>3</td><td><b>Năm 3:</b> Làm đồ án, tham gia nghiên cứu hoặc cuộc thi học thuật</td>
-<td><select onchange="saveData()"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
-<td><input type="date" onchange="saveData()"></td><td><input type="text" onchange="saveData()"></td>
-</tr>
-<tr>
-<td>4</td><td><b>Năm 4:</b> Hoàn tất khóa luận tốt nghiệp và tìm việc làm phù hợp</td>
-<td><select onchange="saveData()"><option>Chưa hoàn thành</option><option>Đang học</option><option>Đã hoàn thành</option></select></td>
-<td><input type="date" onchange="saveData()"></td><td><input type="text" onchange="saveData()"></td>
-</tr>
-</tbody>
-</table>
+<nav>
+  <a href="index.html">🏠 Trang chủ</a>
+  <a href="lop8.html">Lớp 8</a>
+  <a href="lop9.html">Lớp 9</a>
+  <a href="cap3.html">Cấp 3</a>
+  <a href="caulong.html">Cầu lông</a>
+  <a href="daihoc.html">Đại học</a>
+  <a href="doitruong.html">Đội trường</a>
+  <a href="toptruong.html">Top trường</a>
+</nav>
+<main>
+  <h2>Đại học</h2>
+  <p>Ghi chú các ngành học, trường mơ ước và kế hoạch ôn thi đại học.</p>
+</main>
 </body>
 </html>

@@ -1,77 +1,30 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Trang chính</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f0f2f5;
-      overflow: hidden;
-    }
-    #menu {
-      width: 200px;
-      background-color: #243b7a;
-      color: white;
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      padding-top: 20px;
-    }
-    #menu h3 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: white;
-    }
-    #menu a {
-      display: block;
-      color: white;
-      text-decoration: none;
-      padding: 10px 20px;
-      transition: background 0.3s;
-    }
-    #menu a:hover {
-      background-color: #1a2d5c;
-    }
-    #menu a.active {
-      background-color: #16244b;
-    }
-    iframe {
-      position: absolute;
-      top: 0;
-      left: 200px;
-      width: calc(100% - 200px);
-      height: 100%;
-      border: none;
-      background-color: white;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Trang chính</title>
+<style>
+body {margin:0; font-family:Arial; display:flex; background:#f8f8f8;}
+nav {width:200px; background:#2c3e50; color:white; height:100vh; position:fixed; padding-top:20px;}
+nav a {color:white; text-decoration:none; display:block; padding:10px 20px;}
+nav a:hover {background:#34495e;}
+main {margin-left:220px; padding:20px; width:100%;}
+</style>
 </head>
 <body>
-  <div id="menu">
-    <h3>MENU</h3>
-    <a href="caulong.html" target="mainFrame">Cầu lông</a>
-    <a href="doitruong.html" target="mainFrame">Đội trường</a>
-    <a href="lop8.html" target="mainFrame">Lớp 8</a>
-    <a href="lop9.html" target="mainFrame">Lớp 9</a>
-    <a href="cap3.html" target="mainFrame">Cấp 3</a>
-    <a href="daihoc.html" target="mainFrame">Đại học</a>
-    <a href="toptruong.html" target="mainFrame">Top Trường</a>
-    <a href="dethitoan.html" target="mainFrame">Đề Toán</a>
-  </div>
-
-  <iframe name="mainFrame" src="caulong.html"></iframe>
-
-  <script>
-    const links = document.querySelectorAll("#menu a");
-    links.forEach(link => {
-      link.addEventListener("click", () => {
-        links.forEach(l => l.classList.remove("active"));
-        link.classList.add("active");
-      });
-    });
-  </script>
+<nav>
+  <a href="index.html">🏠 Trang chủ</a>
+  <a href="lop8.html">Lớp 8</a>
+  <a href="lop9.html">Lớp 9</a>
+  <a href="cap3.html">Cấp 3</a>
+  <a href="caulong.html">Cầu lông</a>
+  <a href="daihoc.html">Đại học</a>
+  <a href="doitruong.html">Đội trường</a>
+  <a href="toptruong.html">Top trường</a>
+</nav>
+<main>
+  <h1>Chào mừng đến trang của Tuấn Thành</h1>
+  <p>Chọn phần bên trái để xem chi tiết từng mục học hoặc hoạt động.</p>
+</main>
 </body>
 </html>
