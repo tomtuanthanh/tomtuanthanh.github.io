@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Top 10 Trường Cấp 3 tại TP.HCM</title>
+  <title>Top Trường Cấp 3 tại TP.HCM</title>
   <style>
     body {
       margin: 0;
@@ -35,14 +35,20 @@
     main {
       margin-left: 220px;
       padding: 20px;
-      width: 100%;
+      width: calc(100% - 240px);
       background: #fff;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      margin-top: 20px;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 20px;
+      min-width: 1400px;
+      font-size: 13px;
     }
 
     th,
@@ -55,10 +61,37 @@
     th {
       background: #3498db;
       color: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
     tr:nth-child(even) {
       background: #f9fbff;
+    }
+
+    tr:hover {
+      background: #e3f2fd;
+    }
+
+    .school-name {
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    .distance-close {
+      color: #27ae60;
+      font-weight: bold;
+    }
+
+    .score-high {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+
+    .admission-rate {
+      color: #2980b9;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -73,89 +106,392 @@
     <a href="daihoc.html">Đại học</a>
     <a href="doitruong.html">Đội trưởng</a>
     <a href="toptruong.html">Top trường</a>
+    <a href="xedapdien.html">Xe đạp điện</a>
   </nav>
   <main>
-    <h2>Top 10 Trường Cấp 3 tại TP.HCM (2024 – 2025)</h2>
-    <table>
-      <tr>
-        <th>STT</th>
-        <th>Tên trường</th>
-        <th>Mô tả đặc điểm</th>
-        <th>Khoảng cách từ 377 Tân Hương (km)</th>
-        <th>Điểm thi đậu 2024-2025</th>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>THPT Chuyên Lê Hồng Phong</td>
-        <td>Trường chuyên hàng đầu TP.HCM, chương trình chuyên sâu các môn tự nhiên và xã hội</td>
-        <td>2.5 km</td>
-        <td>29.0</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>THPT Chuyên Trần Đại Nghĩa</td>
-        <td>Trường chuyên thuộc ĐHQG-HCM, mạnh về khoa học tự nhiên và công nghệ</td>
-        <td>3.0 km</td>
-        <td>28.2</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>THPT Nguyễn Thị Minh Khai</td>
-        <td>Trường công lập uy tín, chất lượng giảng dạy xuất sắc, cơ sở vật chất hiện đại</td>
-        <td>4.2 km</td>
-        <td>27.6</td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>THPT Nguyễn Thượng Hiền</td>
-        <td>Trường lâu đời, truyền thống học tập tốt, nhiều học sinh đạt giải quốc gia</td>
-        <td>5.1 km</td>
-        <td>27.0</td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td>THPT Nguyễn Hữu Huân</td>
-        <td>Môi trường học tập năng động, đội ngũ giáo viên giàu kinh nghiệm</td>
-        <td>7.5 km</td>
-        <td>26.1</td>
-      </tr>
-      <tr>
-        <td>6</td>
-        <td>THPT Bùi Thị Xuân</td>
-        <td>Trường nữ sinh truyền thống, môi trường văn hóa lịch sự, kỷ luật tốt</td>
-        <td>6.0 km</td>
-        <td>25.4</td>
-      </tr>
-      <tr>
-        <td>7</td>
-        <td>THPT Mạc Đĩnh Chi</td>
-        <td>Chất lượng đào tạo ổn định, nhiều hoạt động ngoại khóa phong phú</td>
-        <td>6.3 km</td>
-        <td>25.2</td>
-      </tr>
-      <tr>
-        <td>8</td>
-        <td>THPT Phú Nhuận</td>
-        <td>Tỷ lệ học sinh đỗ đại học cao, cơ sở vật chất đầy đủ</td>
-        <td>8.1 km</td>
-        <td>24.5</td>
-      </tr>
-      <tr>
-        <td>9</td>
-        <td>THPT Nguyễn Hiền</td>
-        <td>Truyền thống học sinh giỏi văn và ngoại ngữ, hoạt động văn nghệ sôi nổi</td>
-        <td>8.5 km</td>
-        <td>24.1</td>
-      </tr>
-      <tr>
-        <td>10</td>
-        <td>THPT Gia Định</td>
-        <td>Đội ngũ giáo viên tận tâm, chương trình học tập cân bằng</td>
-        <td>9.0 km</td>
-        <td>23.8</td>
-      </tr>
+    <h2>Top Trường Cấp 3 tại TP.HCM (2024 – 2025)</h2>
 
-    </table>
+    <div class="table-container">
+      <table>
+        <tr>
+          <th>STT</th>
+          <th>Tên trường</th>
+          <th>Mô tả đặc điểm</th>
+          <th>Địa chỉ & Liên hệ</th>
+          <th>Khoảng cách<br>từ 377 Tân Hương</th>
+          <th>Điểm thi đậu<br>2024-2025</th>
+          <th>Học phí</th>
+          <th>Tỷ lệ đỗ ĐH</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td class="school-name">THPT Chuyên Lê Hồng Phong</td>
+          <td>Trường chuyên hàng đầu TP.HCM, chương trình chuyên sâu các môn tự nhiên và xã hội</td>
+          <td>235 Nguyễn Văn Cừ, P. Chợ Quán, Q.5<br>☎ 028.3839 8506</td>
+          <td>9.3 km</td>
+          <td class="score-high">27.0</td>
+          <td>Miễn phí</td>
+          <td class="admission-rate">&gt;90%</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="school-name">THPT Chuyên Trần Đại Nghĩa</td>
+          <td>Trường chuyên thuộc ĐHQG-HCM, mạnh về khoa học tự nhiên và công nghệ</td>
+          <td>20 Lý Tự Trọng, P. Bến Nghé, Q.1<br>☎ Liên hệ qua website</td>
+          <td>11.8 km</td>
+          <td class="score-high">36.0</td>
+          <td>Miễn phí</td>
+          <td class="admission-rate">&gt;90%</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td class="school-name">THPT Nguyễn Thị Minh Khai</td>
+          <td>Trường công lập uy tín, chất lượng giảng dạy xuất sắc, cơ sở vật chất hiện đại</td>
+          <td>275 Điện Biên Phủ, P. Võ Thị Sáu, Q.3<br>☎ 028.3933 0801</td>
+          <td>9.3 km</td>
+          <td>23.25</td>
+          <td>Miễn phí</td>
+          <td class="admission-rate">97.7%</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td class="school-name">THPT Nguyễn Thượng Hiền</td>
+          <td>Trường lâu đời, truyền thống học tập tốt, nhiều học sinh đạt giải quốc gia</td>
+          <td>Q. Bình Thạnh<br>☎ Liên hệ qua Sở GD&ĐT</td>
+          <td>5.1 km</td>
+          <td>24.25</td>
+          <td>Miễn phí</td>
+          <td class="admission-rate">100% TN, cao vào ĐH</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td class="school-name">THPT Nguyễn Hữu Huân</td>
+          <td>Môi trường học tập năng động, đội ngũ giáo viên giàu kinh nghiệm</td>
+          <td>1 Đoàn Kết, P. Bình Thọ, TP. Thủ Đức<br>☎ Liên hệ qua website</td>
+          <td>21.2 km</td>
+          <td>23.25</td>
+          <td>Miễn phí</td>
+          <td class="admission-rate">~90%</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td class="school-name">THPT Bùi Thị Xuân</td>
+          <td>Trường nữ sinh truyền thống, môi trường văn hóa lịch sự, kỷ luật tốt</td>
+          <td>73-75 Bùi Thị Xuân, P. Phạm Ngũ Lão, Q.1<br>☎ Liên hệ qua Sở GD&ĐT</td>
+          <td>9.9 km</td>
+          <td>22.25</td>
+          <td>Miễn phí</td>
+          <td class="admission-rate">~90%</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td class="school-name">THPT Mạc Đĩnh Chi</td>
+          <td>Chất lượng đào tạo ổn định, nhiều hoạt động ngoại khóa phong phú</td>
+          <td>Q. Tân Phú<br>☎ Liên hệ qua Sở GD&ĐT</td>
+          <td>4.8 km</td>
+          <td>22.5</td>
+          <td>Miễn phí</td>
+          <td class="admission-rate">~90%</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td class="school-name">THPT Phú Nhuận</td>
+          <td>Tỷ lệ học sinh đỗ đại học cao, cơ sở vật chất đầy đủ</td>
+          <td>Q. Phú Nhuận<br>☎ Liên hệ qua Sở GD&ĐT</td>
+          <td>8.0 km</td>
+          <td>22.5</td>
+          <td>Miễn phí</td>
+          <td class="admission-rate">~90%</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td class="school-name">THPT Nguyễn Hiền</td>
+          <td>Truyền thống học sinh giỏi văn và ngoại ngữ, hoạt động văn nghệ sôi nổi</td>
+          <td>Q. Phú Nhuận<br>☎ Liên hệ qua Sở GD&ĐT</td>
+          <td>9.5 km</td>
+          <td>27.75</td>
+          <td>Miễn phí</td>
+          <td class="admission-rate">~90%</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td class="school-name">THPT Gia Định</td>
+          <td>Đội ngũ giáo viên tận tâm, chương trình học tập cân bằng</td>
+          <td>44 Võ Oanh, P.25, Q. Bình Thạnh<br>☎ Liên hệ qua Sở GD&ĐT</td>
+          <td>10.0 km</td>
+          <td>23.0</td>
+          <td>Miễn phí</td>
+          <td class="admission-rate">~90%</td>
+        </tr>
+        <tr style="background: #fff9e6;">
+          <td>11</td>
+          <td class="school-name">THPT Trần Phú</td>
+          <td>Trường công lập chất lượng cao, tỷ lệ đỗ ĐH cao, cơ sở vật chất tốt</td>
+          <td>18 Lê Thúc Hoạch, P. Phú Thọ Hòa, Q. Tân Phú<br>☎ 028.3865 8727</td>
+          <td class="distance-close">1.3 km</td>
+          <td>23.25</td>
+          <td>Miễn phí</td>
+          <td class="admission-rate">99.8%</td>
+        </tr>
+        <tr style="background: #fff9e6;">
+          <td>12</td>
+          <td class="school-name">THPT Tân Bình</td>
+          <td>Trường gần, môi trường học tập thân thiện, phù hợp nhiều đối tượng học sinh</td>
+          <td>19 Đường Hoa Bằng, P. Tân Sơn Nhì, Q. Tân Phú<br>☎ 028.3849 8193</td>
+          <td class="distance-close">2.4 km</td>
+          <td>19.5</td>
+          <td>Miễn phí</td>
+          <td class="admission-rate">~95%</td>
+        </tr>
+        <tr style="background: #fff9e6;">
+          <td>13</td>
+          <td class="school-name">THPT Tây Thạnh</td>
+          <td>Trường công lập chất lượng, thuận tiện giao thông, nhiều hoạt động ngoại khóa</td>
+          <td>27 Đường C2, P. Tây Thạnh, Q. Tân Phú<br>☎ 028.3816 5608</td>
+          <td class="distance-close">3.7 km</td>
+          <td>21.0</td>
+          <td>Miễn phí</td>
+          <td class="admission-rate">~95%</td>
+        </tr>
+      </table>
+    </div>
+
+    <div
+      style="margin-top: 20px; padding: 15px; background: #f0f8ff; border-left: 4px solid #3498db; border-radius: 4px;">
+      <h3 style="margin-top: 0; color: #2c3e50;">📌 Ghi chú về cách tính điểm:</h3>
+      <ul style="line-height: 1.8;">
+        <li><strong>Trường chuyên (Lê Hồng Phong, Trần Đại Nghĩa):</strong><br>
+          Điểm xét tuyển = Toán (hệ số 1) + Văn (hệ số 1) + Ngoại ngữ (hệ số 1) + Môn chuyên (hệ số 2)<br>
+          <em style="color: #666;">Điểm tối đa: 50 điểm</em>
+        </li>
+        <li><strong>Trường công lập thông thường:</strong><br>
+          Điểm xét tuyển = Toán (hệ số 1) + Văn (hệ số 1) + Ngoại ngữ (hệ số 1)<br>
+          <em style="color: #666;">Điểm tối đa: 30 điểm</em>
+        </li>
+        <li><strong>Lưu ý:</strong> Điểm chuẩn trên là nguyện vọng 1 (NV1) năm học 2024-2025</li>
+        <li><strong>Học phí:</strong> Tất cả trường THPT công lập ở TP.HCM đều miễn học phí (chỉ đóng các khoản dịch vụ
+          hỗ trợ)</li>
+      </ul>
+    </div>
+
+    <div
+      style="margin-top: 30px; padding: 20px; background: #e8f5e9; border-left: 4px solid #4caf50; border-radius: 4px;">
+      <h3 style="margin-top: 0; color: #2c3e50;">📅 Lịch Tuyển Sinh Lớp 10 TP.HCM Năm 2025</h3>
+      <ul style="line-height: 1.8;">
+        <li><strong>Đăng ký nguyện vọng trực tuyến:</strong> 15h ngày 2/5/2025 → 17h ngày 10/5/2025</li>
+        <li><strong>Điều chỉnh nguyện vọng:</strong> Đến 17h ngày 19/5/2025</li>
+        <li><strong>Ngày thi chính thức:</strong> 6 & 7 tháng 6 năm 2025 (2 ngày)</li>
+        <li><strong>Số nguyện vọng tối đa:</strong> 8 nguyện vọng
+          <ul>
+            <li>3 nguyện vọng vào lớp 10 thường</li>
+            <li>2 nguyện vọng vào lớp 10 chuyên</li>
+            <li>3 nguyện vọng vào lớp 10 tiếng Anh tích hợp</li>
+          </ul>
+        </li>
+        <li><strong>Môn thi:</strong>
+          <ul>
+            <li>Toán (120 phút), Ngữ văn (120 phút), Ngoại ngữ (90 phút)</li>
+            <li>Môn chuyên (150 phút) - chỉ cho thí sinh dự thi trường chuyên</li>
+          </ul>
+        </li>
+      </ul>
+      <p style="margin-bottom: 0; font-style: italic; color: #666;">
+        💡 Tất cả đăng ký được thực hiện hoàn toàn trực tuyến qua hệ thống tuyển sinh của thành phố.
+      </p>
+    </div>
+
+    <div style="margin-top: 30px; padding: 20px; background: #fff; border: 2px solid #e0e0e0; border-radius: 8px;">
+      <h3 style="margin-top: 0; color: #2c3e50;">🗺️ Xem chỉ đường đến các trường gần 377 Tân Hương</h3>
+      <p style="color: #666; margin-bottom: 15px;">Ba trường gần nhất (tô màu vàng trong bảng). Click vào tên trường để
+        xem chỉ đường trên Google Maps:</p>
+
+      <div style="display: grid; gap: 15px; margin-bottom: 20px;">
+        <!-- Trần Phú -->
+        <div style="background: #e8f5e9; padding: 15px; border-radius: 8px; border-left: 4px solid #27ae60;">
+          <h4 style="margin: 0 0 8px 0; color: #27ae60;">🏫 THPT Trần Phú</h4>
+          <p style="margin: 0 0 8px 0; color: #555;">📍 18 Lê Thúc Hoạch, P. Phú Thọ Hòa, Q. Tân Phú</p>
+          <p style="margin: 0 0 8px 0; color: #555;">📏 <strong>1.3 km</strong> - Khoảng 4 phút lái xe</p>
+          <a href="https://www.google.com/maps/dir/377+T%C3%A2n+H%C6%B0%C6%A1ng,+T%C3%A2n+Qu%C3%BD,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam/18+%C4%90%C6%B0%E1%BB%9Dng+L%C3%AA+Th%C3%BAc+Ho%E1%BA%A1ch,+Ph%C6%B0%E1%BB%9Dng+Ph%C3%BA+Th%E1%BB%8D+H%C3%B2a,+T%C3%A2n+Ph%C3%BA,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam"
+            target="_blank"
+            style="display: inline-block; background: #27ae60; color: white; padding: 8px 16px; text-decoration: none; border-radius: 4px; font-weight: bold;">
+            🗺️ Xem chỉ đường
+          </a>
+        </div>
+
+        <!-- Tân Bình -->
+        <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; border-left: 4px solid #2196f3;">
+          <h4 style="margin: 0 0 8px 0; color: #1976d2;">🏫 THPT Tân Bình</h4>
+          <p style="margin: 0 0 8px 0; color: #555;">📍 19 Đường Hoa Bằng, P. Tân Sơn Nhì, Q. Tân Phú</p>
+          <p style="margin: 0 0 8px 0; color: #555;">📏 <strong>2.4 km</strong> - Khoảng 6 phút lái xe</p>
+          <a href="https://www.google.com/maps/dir/377+T%C3%A2n+H%C6%B0%C6%A1ng,+T%C3%A2n+Qu%C3%BD,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam/19+Hoa+B%E1%BA%B1ng,+P.+Ph%C3%BA+Thu%E1%BA%ADn,+ph%C6%B0%E1%BB%9Dng+T%C3%A2n+S%C6%A1n+Nh%C3%AC,+T%C3%A2n+Ph%C3%BA,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam"
+            target="_blank"
+            style="display: inline-block; background: #2196f3; color: white; padding: 8px 16px; text-decoration: none; border-radius: 4px; font-weight: bold;">
+            🗺️ Xem chỉ đường
+          </a>
+        </div>
+
+        <!-- Tây Thạnh -->
+        <div style="background: #fff3e0; padding: 15px; border-radius: 8px; border-left: 4px solid #ff9800;">
+          <h4 style="margin: 0 0 8px 0; color: #f57c00;">🏫 THPT Tây Thạnh</h4>
+          <p style="margin: 0 0 8px 0; color: #555;">📍 27 Đường C2, P. Tây Thạnh, Q. Tân Phú</p>
+          <p style="margin: 0 0 8px 0; color: #555;">📏 <strong>3.7 km</strong> - Khoảng 10 phút lái xe</p>
+          <a href="https://www.google.com/maps/dir/377+T%C3%A2n+H%C6%B0%C6%A1ng,+T%C3%A2n+Qu%C3%BD,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam/27+%C4%90%C6%B0%E1%BB%9Dng+C2,+ph%C6%B0%E1%BB%9Dng+T%C3%A2y+Th%E1%BA%A1nh,+T%C3%A2n+Ph%C3%BA,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam"
+            target="_blank"
+            style="display: inline-block; background: #ff9800; color: white; padding: 8px 16px; text-decoration: none; border-radius: 4px; font-weight: bold;">
+            🗺️ Xem chỉ đường
+          </a>
+        </div>
+      </div>
+
+      <!-- Các trường khác -->
+      <h4 style="margin: 25px 0 15px 0; color: #2c3e50; border-top: 1px solid #eee; padding-top: 20px;">🏫 Các trường
+        khác trong Top:</h4>
+      <div
+        style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; margin-bottom: 20px;">
+
+        <!-- Nguyễn Thượng Hiền -->
+        <div style="background: #fdfefe; padding: 15px; border-radius: 8px; border: 1px solid #ddd;">
+          <h4 style="margin: 0 0 8px 0; color: #2c3e50;">THPT Nguyễn Thượng Hiền</h4>
+          <p style="margin: 0 0 8px 0; color: #555; font-size: 13px;">📍 544 Cách Mạng Tháng 8, P.4, Q. Tân Bình</p>
+          <a href="https://www.google.com/maps/dir/377+T%C3%A2n+H%C6%B0%C6%A1ng,+T%C3%A2n+Qu%C3%BD,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh/544+C%C3%A1ch+M%E1%BA%A1ng+Th%C3%A1ng+8,+Ph%C6%B0%E1%BB%9Dng+4,+T%C3%A2n+B%C3%ACnh,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh"
+            target="_blank" style="color: #3498db; text-decoration: none; font-weight: bold; font-size: 13px;">🗺️ Xem
+            chỉ đường (~5.1 km)</a>
+        </div>
+
+        <!-- Mạc Đĩnh Chi -->
+        <div style="background: #fdfefe; padding: 15px; border-radius: 8px; border: 1px solid #ddd;">
+          <h4 style="margin: 0 0 8px 0; color: #2c3e50;">THPT Mạc Đĩnh Chi</h4>
+          <p style="margin: 0 0 8px 0; color: #555; font-size: 13px;">📍 4 Tân Hòa Đông, P.14, Q.6</p>
+          <a href="https://www.google.com/maps/dir/377+T%C3%A2n+H%C6%B0%C6%A1ng,+T%C3%A2n+Qu%C3%BD,+T%C3%A2n+Ph%C3%BA,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh/Tr%C6%B0%E1%BB%9Dng+THPT+M%E1%BA%A1c+%C4%90%C4%A9nh+Chi,+4+T%C3%A2n+H%C3%B2a+%C4%90%C3%B4ng,+Ph%C6%B0%E1%BB%9Dng+14,+Qu%E1%BA%ADn+6,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh"
+            target="_blank" style="color: #3498db; text-decoration: none; font-weight: bold; font-size: 13px;">🗺️ Xem
+            chỉ đường (~4.8 km)</a>
+        </div>
+
+        <!-- Gia Định -->
+        <div style="background: #fdfefe; padding: 15px; border-radius: 8px; border: 1px solid #ddd;">
+          <h4 style="margin: 0 0 8px 0; color: #2c3e50;">THPT Gia Định</h4>
+          <p style="margin: 0 0 8px 0; color: #555; font-size: 13px;">📍 44 Võ Oanh, P.25, Q. Bình Thạnh</p>
+          <a href="https://www.google.com/maps/dir/377+T%C3%A2n+H%C6%B0%C6%A1ng,+T%C3%A2n+Qu%C3%BD,+T%C3%A2n+Ph%C3%BA,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh/Tr%C6%B0%E1%BB%9Dng+THPT+Gia+%C4%90%E1%BB%8Bnh,+44+V%C3%B5+Oanh,+Ph%C6%B0%E1%BB%9Dng+25,+B%C3%ACnh+Th%E1%BA%A1nh,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh"
+            target="_blank" style="color: #3498db; text-decoration: none; font-weight: bold; font-size: 13px;">🗺️ Xem
+            chỉ đường (~10.0 km)</a>
+        </div>
+
+        <!-- Nguyễn Thị Minh Khai -->
+        <div style="background: #fdfefe; padding: 15px; border-radius: 8px; border: 1px solid #ddd;">
+          <h4 style="margin: 0 0 8px 0; color: #2c3e50;">THPT Nguyễn Thị Minh Khai</h4>
+          <p style="margin: 0 0 8px 0; color: #555; font-size: 13px;">📍 275 Điện Biên Phủ, Q.3</p>
+          <a href="https://www.google.com/maps/dir/377+T%C3%A2n+H%C6%B0%C6%A1ng,+T%C3%A2n+Qu%C3%BD,+T%C3%A2n+Ph%C3%BA,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh/Tr%C6%B0%E1%BB%9Dng+THPT+Nguy%E1%BB%85n+Th%E1%BB%8B+Minh+Khai,+275+%C4%90i%E1%BB%87n+Bi%C3%AAn+Ph%E1%BB%A7,+V%C3%B5+Th%E1%BB%8B+S%C3%A1u,+Qu%E1%BA%ADn+3,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh"
+            target="_blank" style="color: #3498db; text-decoration: none; font-weight: bold; font-size: 13px;">🗺️ Xem
+            chỉ đường (~9.3 km)</a>
+        </div>
+
+        <!-- Lê Hồng Phong -->
+        <div style="background: #fdfefe; padding: 15px; border-radius: 8px; border: 1px solid #ddd;">
+          <h4 style="margin: 0 0 8px 0; color: #2c3e50;">THPT Chuyên Lê Hồng Phong</h4>
+          <p style="margin: 0 0 8px 0; color: #555; font-size: 13px;">📍 235 Nguyễn Văn Cừ, Q.5</p>
+          <a href="https://www.google.com/maps/dir/377+T%C3%A2n+H%C6%B0%C6%A1ng,+T%C3%A2n+Qu%C3%BD,+T%C3%A2n+Ph%C3%BA,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh/Tr%C6%B0%E1%BB%9Dng+THPT+Chuy%C3%AAn+L%C3%AA+H%E1%BB%93ng+Phong,+235+Nguy%E1%BB%85n+V%C4%83n+C%E1%BB%AB,+Ph%C6%B0%E1%BB%9Dng+4,+Qu%E1%BA%ADn+5,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh"
+            target="_blank" style="color: #3498db; text-decoration: none; font-weight: bold; font-size: 13px;">🗺️ Xem
+            chỉ đường (~9.3 km)</a>
+        </div>
+
+        <!-- Trần Đại Nghĩa -->
+        <div style="background: #fdfefe; padding: 15px; border-radius: 8px; border: 1px solid #ddd;">
+          <h4 style="margin: 0 0 8px 0; color: #2c3e50;">THPT Chuyên Trần Đại Nghĩa</h4>
+          <p style="margin: 0 0 8px 0; color: #555; font-size: 13px;">📍 20 Lý Tự Trọng, Q.1</p>
+          <a href="https://www.google.com/maps/dir/377+T%C3%A2n+H%C6%B0%C6%A1ng,+T%C3%A2n+Qu%C3%BD,+T%C3%A2n+Ph%C3%BA,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh/Tr%C6%B0%E1%BB%9Dng+THPT+Chuy%C3%AAn+Tr%E1%BA%A7n+%C4%90%E1%BA%A1i+Ngh%C4%A9a,+20+L%C3%BD+T%E1%BB%B1+Tr%E1%BB%8Dng,+B%E1%BA%BFn+Ngh%C3%A9,+Qu%E1%BA%ADn+1,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh"
+            target="_blank" style="color: #3498db; text-decoration: none; font-weight: bold; font-size: 13px;">🗺️ Xem
+            chỉ đường (~11.8 km)</a>
+        </div>
+
+        <!-- Bùi Thị Xuân -->
+        <div style="background: #fdfefe; padding: 15px; border-radius: 8px; border: 1px solid #ddd;">
+          <h4 style="margin: 0 0 8px 0; color: #2c3e50;">THPT Bùi Thị Xuân</h4>
+          <p style="margin: 0 0 8px 0; color: #555; font-size: 13px;">📍 73-75 Bùi Thị Xuân, Q.1</p>
+          <a href="https://www.google.com/maps/dir/377+T%C3%A2n+H%C6%B0%C6%A1ng,+T%C3%A2n+Qu%C3%BD,+T%C3%A2n+Ph%C3%BA,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh/Tr%C6%B0%E1%BB%9Dng+THPT+B%C3%B9i+Th%E1%BB%8B+Xu%C3%A2n,+73+%C4%90.+B%C3%B9i+Th%E1%BB%8B+Xu%C3%A2n,+Ph%E1%BA%A1m+Ng%C5%A9+L%C3%A3o,+Qu%E1%BA%ADn+1,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh"
+            target="_blank" style="color: #3498db; text-decoration: none; font-weight: bold; font-size: 13px;">🗺️ Xem
+            chỉ đường (~9.9 km)</a>
+        </div>
+
+        <!-- Phú Nhuận -->
+        <div style="background: #fdfefe; padding: 15px; border-radius: 8px; border: 1px solid #ddd;">
+          <h4 style="margin: 0 0 8px 0; color: #2c3e50;">THPT Phú Nhuận</h4>
+          <p style="margin: 0 0 8px 0; color: #555; font-size: 13px;">📍 5 Hoàng Minh Giám, Q. Phú Nhuận</p>
+          <a href="https://www.google.com/maps/dir/377+T%C3%A2n+H%C6%B0%C6%A1ng,+T%C3%A2n+Qu%C3%BD,+T%C3%A2n+Ph%C3%BA,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh/Tr%C6%B0%E1%BB%9Dng+THPT+Ph%C3%BA+Nhu%E1%BA%ADn,+5+%C4%90.+Ho%C3%A0ng+Minh+Gi%C3%A1m,+Ph%C6%B0%E1%BB%9Dng+9,+Ph%C3%BA+Nhu%E1%BA%ADn,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh"
+            target="_blank" style="color: #3498db; text-decoration: none; font-weight: bold; font-size: 13px;">🗺️ Xem
+            chỉ đường (~8.0 km)</a>
+        </div>
+
+        <!-- Nguyễn Hiền -->
+        <div style="background: #fdfefe; padding: 15px; border-radius: 8px; border: 1px solid #ddd;">
+          <h4 style="margin: 0 0 8px 0; color: #2c3e50;">THPT Nguyễn Hiền</h4>
+          <p style="margin: 0 0 8px 0; color: #555; font-size: 13px;">📍 3 Dương Đình Nghệ, Q.11</p>
+          <a href="https://www.google.com/maps/dir/377+T%C3%A2n+H%C6%B0%C6%A1ng,+T%C3%A2n+Qu%C3%BD,+T%C3%A2n+Ph%C3%BA,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh/Tr%C6%B0%E1%BB%9Dng+THPT+Nguy%E1%BB%85n+Hi%E1%BB%81n,+3+%C4%90%C6%B0%C6%A1ng+%C4%90%C3%ACnh+Ngh%E1%BB%87,+Ph%C6%B0%E1%BB%9Dng+8,+Qu%E1%BA%ADn+11,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh"
+            target="_blank" style="color: #3498db; text-decoration: none; font-weight: bold; font-size: 13px;">🗺️ Xem
+            chỉ đường (~9.5 km)</a>
+        </div>
+
+        <!-- Nguyễn Hữu Huân -->
+        <div style="background: #fdfefe; padding: 15px; border-radius: 8px; border: 1px solid #ddd;">
+          <h4 style="margin: 0 0 8px 0; color: #2c3e50;">THPT Nguyễn Hữu Huân</h4>
+          <p style="margin: 0 0 8px 0; color: #555; font-size: 13px;">📍 1 Đoàn Kết, TP. Thủ Đức</p>
+          <a href="https://www.google.com/maps/dir/377+T%C3%A2n+H%C6%B0%C6%A1ng,+T%C3%A2n+Qu%C3%BD,+T%C3%A2n+Ph%C3%BA,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh/Tr%C6%B0%E1%BB%9Dng+THPT+Nguy%E1%BB%85n+H%E1%BB%AFu+Hu%C3%A2n,+11+%C4%90o%C3%A0n+K%E1%BA%BFt,+B%C3%ACnh+Th%E1%BB%8D,+Th%E1%BB%A7+%C4%90%E1%BB%A9c,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh"
+            target="_blank" style="color: #3498db; text-decoration: none; font-weight: bold; font-size: 13px;">🗺️ Xem
+            chỉ đường (~21.2 km)</a>
+        </div>
+      </div>
+
+      <p style="font-size: 12px; color: #999; margin-top: 10px; margin-bottom: 0;">
+        💡 Click vào nút "Xem chỉ đường" sẽ mở Google Maps với lộ trình từ 377 Tân Hương đến trường
+      </p>
+    </div>
+
+    <div
+      style="margin-top: 30px; padding: 20px; background: #fff3cd; border-left: 4px solid #ffc107; border-radius: 4px;">
+      <h3 style="margin-top: 0; color: #2c3e50;">📚 Tài liệu ôn thi lớp 10 TP.HCM</h3>
+      <p style="margin-bottom: 15px;">Dưới đây là các nguồn tài liệu ôn thi miễn phí, chính thống giúp các em chuẩn bị
+        tốt cho kỳ thi:</p>
+
+      <div style="background: white; padding: 15px; border-radius: 4px; margin-bottom: 10px;">
+        <h4 style="margin-top: 0; color: #3498db;">🔹 Đề thi chính thức & Đề minh họa</h4>
+        <ul style="line-height: 1.8;">
+          <li><a href="https://www.hcm.edu.vn/" target="_blank" style="color: #2980b9; text-decoration: none;">Sở GD&ĐT
+              TP.HCM</a> - Đề minh họa và thông tin tuyển sinh chính thức</li>
+          <li><a href="https://www.vietjack.com/de-thi-vao-lop-10/" target="_blank"
+              style="color: #2980b9; text-decoration: none;">VietJack</a> - Đề minh họa kỳ thi vào lớp 10 năm 2025</li>
+          <li><a href="https://vnexpress.net/giao-duc" target="_blank"
+              style="color: #2980b9; text-decoration: none;">VnExpress Giáo dục</a> - Đề thi chính thức và đáp án các
+            năm</li>
+        </ul>
+      </div>
+
+      <div style="background: white; padding: 15px; border-radius: 4px; margin-bottom: 10px;">
+        <h4 style="margin-top: 0; color: #27ae60;">🔹 Tài liệu ôn tập theo môn</h4>
+        <ul style="line-height: 1.8;">
+          <li><strong>Toán:</strong> <a href="https://toanmath.com/de-thi-vao-10" target="_blank"
+              style="color: #2980b9; text-decoration: none;">ToanMath</a> - 53 đề ôn tập có đáp án chi tiết</li>
+          <li><strong>Ngữ văn:</strong> <a href="https://hocmai.vn/on-thi-vao-10" target="_blank"
+              style="color: #2980b9; text-decoration: none;">Hocmai</a> - Đề thi và tài liệu ôn tập</li>
+          <li><strong>Tiếng Anh:</strong> <a href="https://langgo.edu.vn/de-thi-tieng-anh-vao-10" target="_blank"
+              style="color: #2980b9; text-decoration: none;">IELTS LangGo</a> - Đề thi có đáp án tham khảo</li>
+        </ul>
+      </div>
+
+      <div style="background: white; padding: 15px; border-radius: 4px;">
+        <h4 style="margin-top: 0; color: #e74c3c;">🔹 Đề thi thử & Luyện tập</h4>
+        <ul style="line-height: 1.8;">
+          <li><a href="https://onthivao10.com/" target="_blank"
+              style="color: #2980b9; text-decoration: none;">OnThiVao10.com</a> - Đề thi thử các môn</li>
+          <li><a href="https://tailieuonthi.edu.vn/" target="_blank"
+              style="color: #2980b9; text-decoration: none;">TaiLieuOnThi</a> - Tổng hợp đề thi 100% miễn phí</li>
+          <li><a href="https://danghoangdu.vn/" target="_blank" style="color: #2980b9; text-decoration: none;">Đặng
+              Hoàng Dư</a> - Tài liệu tham khảo Toán chuyên sâu</li>
+        </ul>
+      </div>
+
+      <p style="margin-top: 15px; font-style: italic; color: #666;">
+        💡 <strong>Lưu ý:</strong> Các tài liệu trên đều miễn phí và hợp pháp. Chúc các em ôn tập hiệu quả!
+      </p>
+    </div>
   </main>
 </body>
 
