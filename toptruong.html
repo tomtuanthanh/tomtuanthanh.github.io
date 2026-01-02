@@ -8,106 +8,81 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      display: flex;
-      background: #f8f8f8;
-    }
 
-    nav {
-      width: 200px;
-      background: #2c3e50;
-      color: white;
-      height: 100vh;
-      position: fixed;
-      padding-top: 20px;
-    }
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: block;
+        background: #f8f8f8;
+      }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      display: block;
-      padding: 10px 20px;
-    }
+      main {
+        margin: 0;
+        padding: 20px;
+        width: 100%;
+        background: #fff;
+        box-sizing: border-box;
+      }
 
-    nav a:hover {
-      background: #34495e;
-    }
+      .table-container {
+        overflow-x: auto;
+        margin-top: 20px;
+      }
 
-    main {
-      margin-left: 220px;
-      padding: 20px;
-      width: calc(100% - 240px);
-      background: #fff;
-    }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 1400px;
+        font-size: 13px;
+      }
 
-    .table-container {
-      overflow-x: auto;
-      margin-top: 20px;
-    }
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+      }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 1400px;
-      font-size: 13px;
-    }
+      th {
+        background: #3498db;
+        color: white;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
 
-    th,
-    td {
-      border: 1px solid #ccc;
-      padding: 8px;
-      text-align: left;
-    }
+      tr:nth-child(even) {
+        background: #f9fbff;
+      }
 
-    th {
-      background: #3498db;
-      color: white;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+      tr:hover {
+        background: #e3f2fd;
+      }
 
-    tr:nth-child(even) {
-      background: #f9fbff;
-    }
+      .school-name {
+        font-weight: bold;
+        color: #2c3e50;
+      }
 
-    tr:hover {
-      background: #e3f2fd;
-    }
+      .distance-close {
+        color: #27ae60;
+        font-weight: bold;
+      }
 
-    .school-name {
-      font-weight: bold;
-      color: #2c3e50;
-    }
+      .score-high {
+        color: #e74c3c;
+        font-weight: bold;
+      }
 
-    .distance-close {
-      color: #27ae60;
-      font-weight: bold;
-    }
-
-    .score-high {
-      color: #e74c3c;
-      font-weight: bold;
-    }
-
-    .admission-rate {
-      color: #2980b9;
-      font-weight: bold;
-    }
+      .admission-rate {
+        color: #2980b9;
+        font-weight: bold;
+      }
   </style>
 </head>
 
 <body>
-  <nav>
-    <a href="index.html">🏠 Trang chủ</a>
-    <a href="lop8.html">Lớp 8</a>
-    <a href="lop9.html">Lớp 9</a>
-    <a href="cap3.html">Cấp 3</a>
-    <a href="caulong.html">Cầu lông</a>
-    <a href="daihoc.html">Đại học</a>
-    <a href="doitruong.html">Đội trưởng</a>
-    <a href="toptruong.html">Top trường</a>
-    <a href="xedapdien.html">Xe đạp điện</a>
-  </nav>
+
   <main>
     <h2>Top Trường Cấp 3 tại TP.HCM (2024 – 2025)</h2>
 

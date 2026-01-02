@@ -1,44 +1,116 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8">
   <title>Kỹ thuật cầu lông</title>
   <style>
-    body {margin:0;font-family:Arial,sans-serif;display:flex;background:#f4f7ff;}
-    nav {width:200px;background:#2c3e50;color:white;height:100vh;position:fixed;padding-top:20px;}
-    nav a {color:white;text-decoration:none;display:block;padding:10px 20px;}
-    nav a:hover {background:#34495e;}
-    main {margin-left:220px;padding:20px;width:100%;background:#fff;}
-    table {width:100%;border-collapse:collapse;margin-top:20px;}
-    th,td {border:1px solid #ccc;padding:8px;text-align:left;}
-    th {background:#3498db;color:white;}
-    tr:nth-child(even){background:#f9fbff;}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: block;
+      background: #f4f7ff;
+    }
+
+    main {
+      margin: 0;
+      padding: 20px;
+      width: 100%;
+      background: #fff;
+      box-sizing: border-box;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th,
+    td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background: #3498db;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background: #f9fbff;
+    }
   </style>
 </head>
+
 <body>
-  <nav>
-    <a href="index.html">🏠 Trang chủ</a>
-    <a href="lop8.html">Lớp 8</a>
-    <a href="lop9.html">Lớp 9</a>
-    <a href="cap3.html">Cấp 3</a>
-    <a href="daihoc.html">Đại học</a>
-    <a href="caulong.html">Cầu lông</a>
-    <a href="toptruong.html">Top trường</a>
-  </nav>
+
   <main>
     <h2>Kỹ thuật cầu lông cơ bản</h2>
     <table>
-      <tr><th>STT</th><th>Kỹ thuật</th><th>Mô tả</th><th>Mức độ thành thạo</th></tr>
-      <tr><td>1</td><td>Giao cầu thấp</td><td>Dùng cho đánh đôi, cầu bay sát lưới.</td><td><input></td></tr>
-      <tr><td>2</td><td>Giao cầu cao</td><td>Dùng cho đánh đơn, cầu bay cao sâu cuối sân.</td><td><input></td></tr>
-      <tr><td>3</td><td>Đập cầu</td><td>Đánh mạnh từ trên cao xuống, tấn công trực tiếp.</td><td><input></td></tr>
-      <tr><td>4</td><td>Lốp cầu</td><td>Phòng thủ, đưa cầu lên cao để có thời gian chuẩn bị.</td><td><input></td></tr>
-      <tr><td>5</td><td>Cắt cầu</td><td>Đánh nhẹ làm cầu bay xoáy và rơi nhanh gần lưới.</td><td><input></td></tr>
-      <tr><td>6</td><td>Phản tạt</td><td>Đỡ cầu nhanh bằng cổ tay, trả cầu ngang mặt lưới.</td><td><input></td></tr>
-      <tr><td>7</td><td>Bỏ nhỏ</td><td>Thực hiện gần lưới, cầu rơi sát mép lưới.</td><td><input></td></tr>
-      <tr><td>8</td><td>Di chuyển sân</td><td>Di chuyển 6 hướng cơ bản, cân bằng cơ thể tốt.</td><td><input></td></tr>
-      <tr><td>9</td><td>Tư thế chuẩn bị</td><td>Hai chân mở rộng, vợt ngang eo, sẵn sàng phản ứng.</td><td><input></td></tr>
+      <tr>
+        <th>STT</th>
+        <th>Kỹ thuật</th>
+        <th>Mô tả</th>
+        <th>Mức độ thành thạo</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Giao cầu thấp</td>
+        <td>Dùng cho đánh đôi, cầu bay sát lưới.</td>
+        <td><input></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Giao cầu cao</td>
+        <td>Dùng cho đánh đơn, cầu bay cao sâu cuối sân.</td>
+        <td><input></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Đập cầu</td>
+        <td>Đánh mạnh từ trên cao xuống, tấn công trực tiếp.</td>
+        <td><input></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Lốp cầu</td>
+        <td>Phòng thủ, đưa cầu lên cao để có thời gian chuẩn bị.</td>
+        <td><input></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Cắt cầu</td>
+        <td>Đánh nhẹ làm cầu bay xoáy và rơi nhanh gần lưới.</td>
+        <td><input></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Phản tạt</td>
+        <td>Đỡ cầu nhanh bằng cổ tay, trả cầu ngang mặt lưới.</td>
+        <td><input></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Bỏ nhỏ</td>
+        <td>Thực hiện gần lưới, cầu rơi sát mép lưới.</td>
+        <td><input></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Di chuyển sân</td>
+        <td>Di chuyển 6 hướng cơ bản, cân bằng cơ thể tốt.</td>
+        <td><input></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Tư thế chuẩn bị</td>
+        <td>Hai chân mở rộng, vợt ngang eo, sẵn sàng phản ứng.</td>
+        <td><input></td>
+      </tr>
     </table>
   </main>
 </body>
+
 </html>
