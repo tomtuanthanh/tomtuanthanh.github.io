@@ -8,76 +8,72 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
+      display: block;
+      background: #f8f8f8;
+    }
 
-      body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        display: block;
-        background: #f8f8f8;
-      }
+    main {
+      margin: 0;
+      padding: 20px;
+      width: 100%;
+      background: #fff;
+      box-sizing: border-box;
+    }
 
-      main {
-        margin: 0;
-        padding: 20px;
-        width: 100%;
-        background: #fff;
-        box-sizing: border-box;
-      }
+    .table-container {
+      overflow-x: auto;
+      margin-top: 20px;
+    }
 
-      .table-container {
-        overflow-x: auto;
-        margin-top: 20px;
-      }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1400px;
+      font-size: 13px;
+    }
 
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        min-width: 1400px;
-        font-size: 13px;
-      }
+    th,
+    td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
 
-      th,
-      td {
-        border: 1px solid #ccc;
-        padding: 8px;
-        text-align: left;
-      }
+    th {
+      background: #3498db;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-      th {
-        background: #3498db;
-        color: white;
-        position: sticky;
-        top: 0;
-        z-index: 10;
-      }
+    tr:nth-child(even) {
+      background: #f9fbff;
+    }
 
-      tr:nth-child(even) {
-        background: #f9fbff;
-      }
+    tr:hover {
+      background: #e3f2fd;
+    }
 
-      tr:hover {
-        background: #e3f2fd;
-      }
+    .school-name {
+      font-weight: bold;
+      color: #2c3e50;
+    }
 
-      .school-name {
-        font-weight: bold;
-        color: #2c3e50;
-      }
+    .distance-close {
+      color: #27ae60;
+      font-weight: bold;
+    }
 
-      .distance-close {
-        color: #27ae60;
-        font-weight: bold;
-      }
+    .score-high {
+      color: #e74c3c;
+      font-weight: bold;
+    }
 
-      .score-high {
-        color: #e74c3c;
-        font-weight: bold;
-      }
-
-      .admission-rate {
-        color: #2980b9;
-        font-weight: bold;
-      }
+    .admission-rate {
+      color: #2980b9;
+      font-weight: bold;
+    }
   </style>
 </head>
 
@@ -118,6 +114,273 @@
           <td>Chất lượng top đầu quận, rất gần nhà (đi bộ/xe đạp tiện)</td>
         </tr>
       </table>
+    </div>
+
+    <h3 style="color: #2c3e50; margin-top: 40px;">📊 Bảng So Sánh Đặc Điểm Các Trường</h3>
+    <div class="table-container" style="margin-bottom: 40px;">
+      <table>
+        <tr>
+          <th>Tên trường</th>
+          <th>Chất lượng học tập</th>
+          <th>Cơ sở vật chất</th>
+          <th>Khoảng cách</th>
+          <th>Điểm chuẩn NV1</th>
+          <th>Tỷ lệ đỗ ĐH</th>
+          <th>Hoạt động ngoại khóa</th>
+          <th>Đánh giá tổng thể</th>
+        </tr>
+        <tr>
+          <td class="school-name">THPT Chuyên Trần Đại Nghĩa</td>
+          <td>⭐⭐⭐⭐⭐</td>
+          <td>⭐⭐⭐⭐⭐</td>
+          <td>11.8 km</td>
+          <td class="score-high">36.0</td>
+          <td class="admission-rate">>90%</td>
+          <td>⭐⭐⭐⭐⭐</td>
+          <td style="background: #d4edda; font-weight: bold;">Xuất sắc</td>
+        </tr>
+        <tr>
+          <td class="school-name">THPT Nguyễn Hiền</td>
+          <td>⭐⭐⭐⭐⭐</td>
+          <td>⭐⭐⭐⭐</td>
+          <td>9.5 km</td>
+          <td class="score-high">27.75</td>
+          <td class="admission-rate">~90%</td>
+          <td>⭐⭐⭐⭐⭐</td>
+          <td style="background: #d4edda; font-weight: bold;">Xuất sắc</td>
+        </tr>
+        <tr>
+          <td class="school-name">THPT Chuyên Lê Hồng Phong</td>
+          <td>⭐⭐⭐⭐⭐</td>
+          <td>⭐⭐⭐⭐⭐</td>
+          <td>9.3 km</td>
+          <td class="score-high">27.0</td>
+          <td class="admission-rate">>90%</td>
+          <td>⭐⭐⭐⭐⭐</td>
+          <td style="background: #d4edda; font-weight: bold;">Xuất sắc</td>
+        </tr>
+        <tr>
+          <td class="school-name">THPT Nguyễn Thượng Hiền</td>
+          <td>⭐⭐⭐⭐⭐</td>
+          <td>⭐⭐⭐⭐</td>
+          <td class="distance-close">5.1 km</td>
+          <td class="score-high">24.25</td>
+          <td class="admission-rate">100% TN, cao vào ĐH</td>
+          <td>⭐⭐⭐⭐⭐</td>
+          <td style="background: #d4edda; font-weight: bold;">Xuất sắc</td>
+        </tr>
+        <tr>
+          <td class="school-name">THPT Nguyễn Thị Minh Khai</td>
+          <td>⭐⭐⭐⭐⭐</td>
+          <td>⭐⭐⭐⭐⭐</td>
+          <td>9.3 km</td>
+          <td>23.25</td>
+          <td class="admission-rate">97.7%</td>
+          <td>⭐⭐⭐⭐</td>
+          <td style="background: #d4edda; font-weight: bold;">Xuất sắc</td>
+        </tr>
+        <tr>
+          <td class="school-name">THPT Trần Phú</td>
+          <td>⭐⭐⭐⭐</td>
+          <td>⭐⭐⭐⭐</td>
+          <td class="distance-close">1.3 km</td>
+          <td>23.25</td>
+          <td class="admission-rate">99.8%</td>
+          <td>⭐⭐⭐⭐</td>
+          <td style="background: #d1ecf1; font-weight: bold;">Rất tốt</td>
+        </tr>
+        <tr>
+          <td class="school-name">THPT Nguyễn Hữu Huân</td>
+          <td>⭐⭐⭐⭐</td>
+          <td>⭐⭐⭐⭐</td>
+          <td>21.2 km</td>
+          <td>23.25</td>
+          <td class="admission-rate">~90%</td>
+          <td>⭐⭐⭐⭐</td>
+          <td style="background: #d1ecf1; font-weight: bold;">Rất tốt</td>
+        </tr>
+        <tr>
+          <td class="school-name">THPT Gia Định</td>
+          <td>⭐⭐⭐⭐</td>
+          <td>⭐⭐⭐⭐</td>
+          <td>10.0 km</td>
+          <td>23.0</td>
+          <td class="admission-rate">~90%</td>
+          <td>⭐⭐⭐</td>
+          <td style="background: #d1ecf1; font-weight: bold;">Rất tốt</td>
+        </tr>
+        <tr>
+          <td class="school-name">THPT Mạc Đĩnh Chi</td>
+          <td>⭐⭐⭐⭐</td>
+          <td>⭐⭐⭐</td>
+          <td class="distance-close">4.8 km</td>
+          <td>22.5</td>
+          <td class="admission-rate">~90%</td>
+          <td>⭐⭐⭐⭐</td>
+          <td style="background: #d1ecf1; font-weight: bold;">Rất tốt</td>
+        </tr>
+        <tr>
+          <td class="school-name">THPT Phú Nhuận</td>
+          <td>⭐⭐⭐⭐</td>
+          <td>⭐⭐⭐⭐</td>
+          <td>8.0 km</td>
+          <td>22.5</td>
+          <td class="admission-rate">~90%</td>
+          <td>⭐⭐⭐</td>
+          <td style="background: #d1ecf1; font-weight: bold;">Rất tốt</td>
+        </tr>
+        <tr>
+          <td class="school-name">THPT Bùi Thị Xuân</td>
+          <td>⭐⭐⭐⭐</td>
+          <td>⭐⭐⭐</td>
+          <td>9.9 km</td>
+          <td>22.25</td>
+          <td class="admission-rate">~90%</td>
+          <td>⭐⭐⭐</td>
+          <td style="background: #d1ecf1; font-weight: bold;">Rất tốt</td>
+        </tr>
+        <tr>
+          <td class="school-name">THPT Tây Thạnh</td>
+          <td>⭐⭐⭐</td>
+          <td>⭐⭐⭐</td>
+          <td class="distance-close">3.7 km</td>
+          <td>21.0</td>
+          <td class="admission-rate">~95%</td>
+          <td>⭐⭐⭐⭐</td>
+          <td style="background: #fff3cd; font-weight: bold;">Tốt</td>
+        </tr>
+        <tr>
+          <td class="school-name">THPT Tân Bình</td>
+          <td>⭐⭐⭐</td>
+          <td>⭐⭐⭐</td>
+          <td class="distance-close">2.4 km</td>
+          <td>19.5</td>
+          <td class="admission-rate">~95%</td>
+          <td>⭐⭐⭐</td>
+          <td style="background: #fff3cd; font-weight: bold;">Tốt</td>
+        </tr>
+      </table>
+    </div>
+
+    <h3 style="color: #2c3e50;">🏆 Bảng Xếp Hạng Trường Từ Tốt Nhất Đến Yếu Nhất</h3>
+    <div class="table-container" style="margin-bottom: 40px;">
+      <table>
+        <tr>
+          <th>Hạng</th>
+          <th>Tên trường</th>
+          <th>Ưu điểm nổi bật</th>
+          <th>Nhược điểm</th>
+          <th>Đề xuất</th>
+        </tr>
+        <tr style="background: #ffd700;">
+          <td style="font-size: 18px; font-weight: bold;">🥇 1</td>
+          <td class="school-name">THPT Chuyên Trần Đại Nghĩa</td>
+          <td>Top đầu TP.HCM, trực thuộc ĐHQG, chương trình chuyên sâu, cơ sở vật chất hiện đại</td>
+          <td>Điểm chuẩn rất cao (36.0), khoảng cách xa (11.8 km)</td>
+          <td>Phù hợp học sinh giỏi, đam mê khoa học tự nhiên</td>
+        </tr>
+        <tr style="background: #c0c0c0;">
+          <td style="font-size: 18px; font-weight: bold;">🥈 2</td>
+          <td class="school-name">THPT Nguyễn Hiền</td>
+          <td>Điểm chuẩn cao (27.75), mạnh về văn và ngoại ngữ, hoạt động văn nghệ phong phú</td>
+          <td>Khoảng cách khá xa (9.5 km)</td>
+          <td>Phù hợp học sinh giỏi, yêu thích văn học và nghệ thuật</td>
+        </tr>
+        <tr style="background: #cd7f32;">
+          <td style="font-size: 18px; font-weight: bold;">🥉 3</td>
+          <td class="school-name">THPT Chuyên Lê Hồng Phong</td>
+          <td>Trường chuyên hàng đầu, đội ngũ giáo viên giỏi, tỷ lệ đỗ ĐH >90%</td>
+          <td>Điểm chuẩn cao (27.0), khoảng cách xa (9.3 km)</td>
+          <td>Phù hợp học sinh xuất sắc, học lực vững</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold;">4</td>
+          <td class="school-name">THPT Nguyễn Thượng Hiền</td>
+          <td>Truyền thống lâu đời, điểm chuẩn cao (24.25), 100% TN, gần nhà (5.1 km)</td>
+          <td>Cạnh tranh khốc liệt do chất lượng cao</td>
+          <td><strong>⭐ TRƯỜNG ƯU TIÊN SỐ 1</strong> - Cân bằng giữa chất lượng và khoảng cách</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold;">5</td>
+          <td class="school-name">THPT Nguyễn Thị Minh Khai</td>
+          <td>Cơ sở vật chất hiện đại, tỷ lệ đỗ ĐH 97.7%, uy tín lâu năm</td>
+          <td>Khoảng cách xa (9.3 km)</td>
+          <td>Lựa chọn tốt cho học sinh giỏi, môi trường học tập chuyên nghiệp</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold;">6</td>
+          <td class="school-name">THPT Trần Phú</td>
+          <td>Rất gần nhà (1.3 km), tỷ lệ đỗ ĐH cao (99.8%), điểm chuẩn 23.25</td>
+          <td>Chất lượng tốt nhưng không thuộc top đầu thành phố</td>
+          <td><strong>⭐ TRƯỜNG ƯU TIÊN SỐ 3</strong> - Lựa chọn an toàn, tiện đi lại</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold;">7</td>
+          <td class="school-name">THPT Nguyễn Hữu Huân</td>
+          <td>Giáo viên giàu kinh nghiệm, môi trường năng động</td>
+          <td>Quá xa (21.2 km), tốn thời gian đi lại</td>
+          <td>Không khuyến khích do khoảng cách quá xa</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold;">8</td>
+          <td class="school-name">THPT Gia Định</td>
+          <td>Giáo viên tận tâm, chương trình cân bằng</td>
+          <td>Khoảng cách khá xa (10 km), hoạt động ngoại khóa hạn chế</td>
+          <td>Tùy chọn nếu các trường ưu tiên không trúng tuyển</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold;">9</td>
+          <td class="school-name">THPT Mạc Đĩnh Chi</td>
+          <td>Gần nhà (4.8 km), chất lượng ổn định</td>
+          <td>Cơ sở vật chất trung bình</td>
+          <td>Lựa chọn dự phòng tốt, gần nhà</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold;">10</td>
+          <td class="school-name">THPT Phú Nhuận</td>
+          <td>Tỷ lệ đỗ ĐH cao, cơ sở đầy đủ</td>
+          <td>Khoảng cách khá xa (8 km), hoạt động ngoại khóa hạn chế</td>
+          <td>Tùy chọn nếu các trường gần hơn đã đầy</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold;">11</td>
+          <td class="school-name">THPT Bùi Thị Xuân</td>
+          <td>Trường nữ sinh, môi trường lịch sự, kỷ luật tốt</td>
+          <td>Khoảng cách xa (9.9 km), cơ sở vật chất trung bình</td>
+          <td>Phù hợp nữ sinh ưa thích môi trường truyền thống</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold;">12</td>
+          <td class="school-name">THPT Tây Thạnh</td>
+          <td>Gần nhà (3.7 km), nhiều hoạt động ngoại khóa, điểm chuẩn vừa phải (21.0)</td>
+          <td>Chất lượng học tập và cơ sở vật chất ở mức trung bình</td>
+          <td>Lựa chọn an toàn cho nguyện vọng dự phòng</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold;">13</td>
+          <td class="school-name">THPT Tân Bình</td>
+          <td>Rất gần nhà (2.4 km), điểm chuẩn thấp (19.5), tỷ lệ đỗ ĐH ~95%</td>
+          <td>Chất lượng học tập và hoạt động ngoại khóa còn hạn chế</td>
+          <td>Nguyện vọng cuối cùng để đảm bảo có trường học</td>
+        </tr>
+      </table>
+    </div>
+
+    <div
+      style="margin-top: 20px; padding: 15px; background: #e8f5e9; border-left: 4px solid #4caf50; border-radius: 4px;">
+      <h4 style="margin-top: 0; color: #2c3e50;">💡 Khuyến nghị lựa chọn nguyện vọng:</h4>
+      <ol style="line-height: 1.8;">
+        <li><strong>Nguyện vọng 1:</strong> THPT Nguyễn Thượng Hiền - Cân bằng tốt nhất giữa chất lượng và khoảng cách
+        </li>
+        <li><strong>Nguyện vọng 2:</strong> PT Năng Khiếu (ĐHQG HCM) - Nếu đủ năng lực thi riêng</li>
+        <li><strong>Nguyện vọng 3:</strong> THPT Trần Phú - Gần nhà, chất lượng tốt, an toàn</li>
+        <li><strong>Nguyện vọng 4-5:</strong> THPT Mạc Đĩnh Chi hoặc THPT Tây Thạnh - Dự phòng gần nhà</li>
+        <li><strong>Nguyện vọng cuối:</strong> THPT Tân Bình - Đảm bảo chắc chắn có trường</li>
+      </ol>
+      <p style="margin-bottom: 0; font-style: italic; color: #666;">
+        ⚠️ Lưu ý: Ưu tiên các trường gần nhà (dưới 5 km) để tiết kiệm thời gian đi lại và chi phí. Cân nhắc giữa chất
+        lượng và sự tiện lợi.
+      </p>
     </div>
 
     <h3>📋 Danh sách chi tiết các trường khác</h3>
