@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Tài Liệu Học Tập</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            min-height: 100vh;
+        }
+
+        main {
+            margin: 0;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .intro-section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .intro-section h2 {
+            margin-top: 0;
+            color: #43e97b;
+            border-bottom: 3px solid #43e97b;
+            padding-bottom: 10px;
+        }
+
+        .category-section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .category-section h2 {
+            margin-top: 0;
+            color: #2c3e50;
+            border-left: 5px solid #43e97b;
+            padding-left: 15px;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .resource-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            border-left: 4px solid #43e97b;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .resource-card h3 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+            font-size: 18px;
+        }
+
+        .resource-card p {
+            margin: 0 0 15px 0;
+            color: #555;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .resource-link {
+            display: inline-block;
+            background: #43e97b;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .resource-link:hover {
+            background: #38f9d7;
+            transform: scale(1.05);
+        }
+
+        .tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin: 5px 5px 5px 0;
+        }
+
+        .tag.free {
+            background: #4caf50;
+        }
+
+        .tag.video {
+            background: #e74c3c;
+        }
+
+        .tag.practice {
+            background: #f39c12;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>📚 Thư Viện Tài Liệu Học Tập Miễn Phí</h1>
+
+        <div class="intro-section">
+            <h2>🌟 Giới Thiệu</h2>
+            <p>Chào mừng em đến với thư viện tài liệu học tập! Đây là tổng hợp các nguồn tài liệu miễn phí chất lượng
+                cao giúp em ôn tập hiệu quả cho kỳ thi vào lớp 10.</p>
+            <div class="info-box">
+                <strong>💡 Lưu ý:</strong> Tất cả tài liệu dưới đây đều MIỄN PHÍ 100%. Em nên kết hợp nhiều nguồn để
+                học tập đạt hiệu quả tốt nhất!
+            </div>
+        </div>
+
+        <!-- TOÁN -->
+        <div class="category-section">
+            <h2>📐 Toán</h2>
+
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h3>🌐 ToanMath.com</h3>
+                    <p>Website chuyên cung cấp đề thi, bài giảng, và lời giải chi tiết cho môn Toán THCS.</p>
+                    <div>
+                        <span class="tag free">Miễn phí</span>
+                        <span class="tag practice">Đề thi</span>
+                    </div>
+                    <br><br>
+                    <a href="https://thcs.toanmath.com/" target="_blank" class="resource-link">🔗 Truy cập</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>🌐 VietJack.com</h3>
+                    <p>Hệ thống bài tập Toán từ lớp 6-9, có lời giải chi tiết và video bài giảng.</p>
+                    <div>
+                        <span class="tag free">Miễn phí</span>
+                        <span class="tag video">Video</span>
+                        <span class="tag practice">Bài tập</span>
+                    </div>
+                    <br><br>
+                    <a href="https://vietjack.com/" target="_blank" class="resource-link">🔗 Truy cập</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>📺 Khan Academy (Tiếng Việt)</h3>
+                    <p>Video bài giảng Toán từ cơ bản đến nâng cao, có phụ đề tiếng Việt.</p>
+                    <div>
+                        <span class="tag free">Miễn phí</span>
+                        <span class="tag video">Video</span>
+                    </div>
+                    <br><br>
+                    <a href="https://vi.khanacademy.org/" target="_blank" class="resource-link">🔗 Truy cập</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>📖 Toán Học Vui</h3>
+                    <p>Bài tập Toán theo chương trình SGK, có đáp án và hướng dẫn giải chi tiết.</p>
+                    <div>
+                        <span class="tag free">Miễn phí</span>
+                        <span class="tag practice">Bài tập</span>
+                    </div>
+                    <br><br>
+                    <a href="https://toanhocvui.com/" target="_blank" class="resource-link">🔗 Truy cập</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>📺 YouTube - Thầy Trần Phương</h3>
+                    <p>Kênh YouTube với các bài giảng Toán chuyên sâu và giải đề thi vào 10.</p>
+                    <div>
+                        <span class="tag free">Miễn phí</span>
+                        <span class="tag video">Video</span>
+                    </div>
+                    <br><br>
+                    <a href="https://www.youtube.com/@TranPhuongMath" target="_blank" class="resource-link">🔗 Truy
+                        cập</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>📱 App: Monkey Math</h3>
+                    <p>Ứng dụng học Toán qua game, phù hợp để rèn luyện tư duy nhanh.</p>
+                    <div>
+                        <span class="tag free">Miễn phí</span>
+                        <span class="tag practice">Luyện tập</span>
+                    </div>
+                    <br><br>
+                    <a href="https://www.monkeymath.vn/" target="_blank" class="resource-link">🔗 Tìm hiểu</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- NGỮ VĂN -->
+        <div class="category-section">
+            <h2>📚 Ngữ Văn</h2>
+
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h3>🌐 VietJack Văn</h3>
+                    <p>Phân tích tác phẩm văn học, hướng dẫn làm văn, và đề thi có đáp án.</p>
+                    <div>
+                        <span class="tag free">Miễn phí</span>
+                        <span class="tag practice">Phân tích</span>
+                    </div>
+                    <br><br>
+                    <a href="https://vietjack.com/ngu-van/" target="_blank" class="resource-link">🔗 Truy cập</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>📖 Văn Mẫu</h3>
+                    <p>Kho văn mẫu phong phú với nhiều dạng bài: nghị luận, tự sự, miêu tả.</p>
+                    <div>
+                        <span class="tag free">Miễn phí</span>
+                        <span class="tag practice">Văn mẫu</span>
+                    </div>
+                    <br><br>
+                    <a href="https://vanmau.edu.vn/" target="_blank" class="resource-link">🔗 Truy cập</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>📺 YouTube - Cô Nguyễn Thị Thu</h3>
+                    <p>Kênh YouTube chuyên phân tích văn học và hướng dẫn viết văn nghị luận.</p>
+                    <div>
+                        <span class="tag free">Miễn phí</span>
+                        <span class="tag video">Video</span>
+                    </div>
+                    <br><br>
+                    <a href="https://www.youtube.com/@conguyen" target="_blank" class="resource-link">🔗 Truy cập</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>📖 HocMai.vn (Free Content)</h3>
+                    <p>Bài giảng Văn trực tuyến, có phần miễn phí chất lượng cao.</p>
+                    <div>
+                        <span class="tag free">Miễn phí</span>
+                        <span class="tag video">Video</span>
+                    </div>
+                    <br><br>
+                    <a href="https://hocmai.vn/" target="_blank" class="resource-link">🔗 Truy cập</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>📰 Tuổi Trẻ - Mục Giáo Dục</h3>
+                    <p>Đọc báo để mở rộng vốn từ và tìm ý tưởng viết văn nghị luận xã hội.</p>
+                    <div>
+                        <span class="tag free">Miễn phí</span>
+                    </div>
+                    <br><br>
+                    <a href="https://tuoitre.vn/giao-duc.htm" target="_blank" class="resource-link">🔗 Truy cập</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>📚 Thư Viện PDF</h3>
+                    <p>Sách Văn học, tác phẩm kinh điển ở dạng PDF để đọc và nghiên cứu.</p>
+                    <div>
+                        <span class="tag free">Miễn phí</span>
+                    </div>
+                    <br><br>
+                    <a href="https://sachvui.com/" target="_blank" class="resource-link">🔗 Truy cập</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- TIẾNG ANH -->
+        <div class="category-section">
+            <h2>🇬🇧 Tiếng Anh</h2>
+
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h3>🌐 Duolingo</h3>
+                    <p>App học Tiếng Anh miễn phí, vui nhộn qua game, phù hợp mọi trình độ.</p>
+                    <div>
+                        <span class="tag free">Miễn phí</span>
+                        <span class="tag practice">Luyện tập</span>
+                    </div>
+                    <br><br>
+                    <a href="https://www.duolingo.com/" target="_blank" class="resource-link">🔗 Truy cập</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>📺 BBC Learning English</h3>
+                    <p>Video, audio và bài học Tiếng Anh chất lượng cao từ BBC.</p>
+                    <div>
+                        <span class="tag free">Miễn phí</span>
+                        <span class="tag video">Video</span>
+                    </div>
+                    <br><br>
+                    <a href="https://www.bbc.co.uk/learningenglish/" target="_blank" class="resource-link">🔗 Truy
+                        cập</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>📱 Quizlet</h3>
+                    <p>Tạo và học flashcard từ vựng, có sẵn hàng triệu bộ flashcard do cộng đồng chia sẻ.</p>
+                    <div>
+                        <span class="tag free">Miễn phí</span>
+                        <span class="tag practice">Flashcard</span>
+                    </div>
+                    <br><br>
+                    <a href="https://quizlet.com/" target="_blank" class="resource-link">🔗 Truy cập</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>📺 VOA Learning English</h3>
+                    <p>Tin tức Tiếng Anh đơn giản hóa, có transcript và audio rõ ràng.</p>
+                    <div>
+                        <span class="tag free">Miễn phí</span>
+                        <span class="tag video">Video</span>
+                    </div>
+                    <br><br>
+                    <a href="https://learningenglish.voanews.com/" target="_blank" class="resource-link">🔗 Truy
+                        cập</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>📖 EnglishGrammar.org</h3>
+                    <p>Hướng dẫn ngữ pháp Tiếng Anh chi tiết, có bài tập luyện tập.</p>
+                    <div>
+                        <span class="tag free">Miễn phí</span>
+                        <span class="tag practice">Ngữ pháp</span>
+                    </div>
+                    <br><br>
+                    <a href="https://www.englishgrammar.org/" target="_blank" class="resource-link">🔗 Truy cập</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>🌐 VietJack English</h3>
+                    <p>Đề thi Tiếng Anh vào lớp 10, bài tập theo SGK có đáp án chi tiết.</p>
+                    <div>
+                        <span class="tag free">Miễn phí</span>
+                        <span class="tag practice">Đề thi</span>
+                    </div>
+                    <br><br>
+                    <a href="https://vietjack.com/tieng-anh/" target="_blank" class="resource-link">🔗 Truy cập</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- TỔNG HỢP -->
+        <div class="category-section">
+            <h2>🎯 Tài Liệu Tổng Hợp</h2>
+
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h3>🌐 TUYENSINH247</h3>
+                    <p>Đề thi vào 10 tất cả các tỉnh thành, có đáp án và lời giải chi tiết.</p>
+                    <div>
+                        <span class="tag free">Miễn phí</span>
+                        <span class="tag practice">Đề thi</span>
+                    </div>
+                    <br><br>
+                    <a href="https://tuyensinh247.com/" target="_blank" class="resource-link">🔗 Truy cập</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>📺 HocMai.vn - Free Courses</h3>
+                    <p>Khóa học trực tuyến miễn phí cho học sinh THCS, đầy đủ 3 môn thi.</p>
+                    <div>
+                        <span class="tag free">Miễn phí</span>
+                        <span class="tag video">Video</span>
+                    </div>
+                    <br><br>
+                    <a href="https://hocmai.vn/" target="_blank" class="resource-link">🔗 Truy cập</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>🌐 HOCMAI247</h3>
+                    <p>Bài giảng video, đề thi thử, tài liệu ôn tập cho kỳ thi vào 10.</p>
+                    <div>
+                        <span class="tag free">Miễn phí</span>
+                        <span class="tag video">Video</span>
+                        <span class="tag practice">Đề thi</span>
+                    </div>
+                    <br><br>
+                    <a href="https://hocmai247.com/" target="_blank" class="resource-link">🔗 Truy cập</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>📱 Luyện Thi 123</h3>
+                    <p>App luyện thi vào 10 với ngân hàng câu hỏi phong phú.</p>
+                    <div>
+                        <span class="tag free">Miễn phí</span>
+                        <span class="tag practice">Luyện tập</span>
+                    </div>
+                    <br><br>
+                    <a href="https://luyenthi123.vn/" target="_blank" class="resource-link">🔗 Truy cập</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>📚 Thư Viện SGK</h3>
+                    <p>Sách giáo khoa điện tử lớp 6-9 tất cả các môn học.</p>
+                    <div>
+                        <span class="tag free">Miễn phí</span>
+                    </div>
+                    <br><br>
+                    <a href="https://sachmem.vn/" target="_blank" class="resource-link">🔗 Truy cập</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>🎓 Coursera (Courses in Vietnamese)</h3>
+                    <p>Khóa học online miễn phí từ các trường đại học hàng đầu thế giới.</p>
+                    <div>
+                        <span class="tag free">Miễn phí</span>
+                        <span class="tag video">Video</span>
+                    </div>
+                    <br><br>
+                    <a href="https://www.coursera.org/" target="_blank" class="resource-link">🔗 Truy cập</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- TIPS -->
+        <div class="category-section">
+            <h2>💡 Lời Khuyên Sử Dụng Tài Liệu</h2>
+
+            <div class="warning-box">
+                <strong>⚠️ Lưu ý quan trọng:</strong>
+                <ul style="margin: 10px 0; padding-left: 20px;">
+                    <li>Không nên học nhiều nguồn cùng lúc, chọn 2-3 nguồn chính và theo đuổi đến cùng</li>
+                    <li>Ưu tiên làm đề thi thật các năm trước, sau đó mới làm đề thi thử</li>
+                    <li>Học theo kế hoạch cụ thể, đừng học tràn lan</li>
+                    <li>Kết hợp học lý thuyết và làm bài tập thực hành</li>
+                    <li>Ghi chép những kiến thức quan trọng vào sổ tay để ôn lại</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <strong>✅ Cách học hiệu quả:</strong>
+                <ol style="margin: 10px 0; padding-left: 20px;">
+                    <li>Xem video bài giảng để hiểu khái niệm</li>
+                    <li>Đọc tài liệu để củng cố kiến thức</li>
+                    <li>Làm bài tập để rèn luyện kỹ năng</li>
+                    <li>Làm đề thi thử để đánh giá năng lực</li>
+                    <li>Ôn lại những phần còn yếu</li>
+                </ol>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; padding: 20px; background: white; border-radius: 8px; text-align: center;">
+            <p style="margin: 0; color: #666;">
+                <a href="kehoach.html" style="color: #43e97b; text-decoration: none; font-weight: bold;">← Quay lại Kế
+                    Hoạch</a> |
+                <a href="index.html" style="color: #43e97b; text-decoration: none; font-weight: bold;">Trang chủ</a>
+            </p>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📝 Ghi Chú & Flashcards</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-height: 100vh;
+        }
+
+        main {
+            margin: 0;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: white;
+            color: #f5576c;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .tab-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .flashcard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .flashcard {
+            perspective: 1000px;
+            height: 250px;
+            cursor: pointer;
+        }
+
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front,
+        .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .flashcard-front {
+            background: white;
+            color: #2c3e50;
+        }
+
+        .flashcard-back {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front h3 {
+            margin: 0;
+            font-size: 20px;
+            color: #f5576c;
+        }
+
+        .flashcard-front p {
+            margin: 15px 0 0 0;
+            font-size: 16px;
+        }
+
+        .flashcard-back p {
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .notes-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .notes-section h2 {
+            margin-top: 0;
+            color: #f5576c;
+            border-bottom: 3px solid #f5576c;
+            padding-bottom: 10px;
+        }
+
+        .note-item {
+            background: #fff3f5;
+            border-left: 4px solid #f5576c;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .note-item h4 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+        }
+
+        .note-item p {
+            margin: 5px 0;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .note-item ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .note-item li {
+            margin: 5px 0;
+            line-height: 1.6;
+        }
+
+        .formula-box {
+            background: #e3f2fd;
+            border: 2px solid #2196f3;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .tip-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .tip-box h4 {
+            margin: 0 0 10px 0;
+            color: #856404;
+        }
+
+        @media (max-width: 768px) {
+            .flashcard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .tab-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>📝 Ghi Chú & Flashcards Học Tập</h1>
+
+        <div class="tab-container">
+            <button class="tab-btn active" onclick="showTab('math')">📐 Toán</button>
+            <button class="tab-btn" onclick="showTab('literature')">📚 Ngữ Văn</button>
+            <button class="tab-btn" onclick="showTab('english')">🇬🇧 Tiếng Anh</button>
+        </div>
+
+        <!-- MATH TAB -->
+        <div id="math" class="tab-content active">
+            <div class="notes-section">
+                <h2>📐 Ghi Chú Toán Học</h2>
+
+                <div class="note-item">
+                    <h4>🔷 Phương Trình Bậc 2</h4>
+                    <div class="formula-box">
+                        ax² + bx + c = 0 (a ≠ 0)
+                    </div>
+                    <p><strong>Công thức nghiệm:</strong></p>
+                    <div class="formula-box">
+                        Δ = b² - 4ac<br>
+                        x₁ = (-b + √Δ) / 2a<br>
+                        x₂ = (-b - √Δ) / 2a
+                    </div>
+                    <ul>
+                        <li>Δ > 0: Phương trình có 2 nghiệm phân biệt</li>
+                        <li>Δ = 0: Phương trình có nghiệm kép x = -b/2a</li>
+                        <li>Δ < 0: Phương trình vô nghiệm</li>
+                    </ul>
+                </div>
+
+                <div class="note-item">
+                    <h4>🔷 Hệ Thức Vi-et</h4>
+                    <p>Cho phương trình ax² + bx + c = 0 có 2 nghiệm x₁, x₂:</p>
+                    <div class="formula-box">
+                        x₁ + x₂ = -b/a<br>
+                        x₁ × x₂ = c/a
+                    </div>
+                </div>
+
+                <div class="note-item">
+                    <h4>🔷 Công Thức Đường Tròn</h4>
+                    <ul>
+                        <li>Chu vi: C = 2πr = πd</li>
+                        <li>Diện tích: S = πr²</li>
+                        <li>Độ dài cung tròn: l = (πrn)/180° (n là số đo góc)</li>
+                        <li>Diện tích hình quạt: S = (πr²n)/360°</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <h4>💡 Mẹo Nhớ</h4>
+                    <p>Luôn kiểm tra điều kiện xác định trước khi giải phương trình chứa căn!</p>
+                </div>
+            </div>
+
+            <h3 style="color: white; text-align: center; margin: 30px 0;">🎴 Flashcards Toán</h3>
+            <div class="flashcard-grid">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3>Câu hỏi</h3>
+                            <p>Công thức tính nghiệm của phương trình bậc 2?</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>x = (-b ± √Δ) / 2a<br>với Δ = b² - 4ac</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3>Câu hỏi</h3>
+                            <p>Công thức hệ thức Vi-et?</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>x₁ + x₂ = -b/a<br>x₁ × x₂ = c/a</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3>Câu hỏi</h3>
+                            <p>Công thức diện tích hình tròn?</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>S = πr²<br>(r là bán kính)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3>Câu hỏi</h3>
+                            <p>Định lý Pytago?</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>a² + b² = c²<br>(c là cạnh huyền)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3>Câu hỏi</h3>
+                            <p>Điều kiện để 2 tam giác đồng dạng?</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>- 3 cạnh tương ứng tỉ lệ<br>- 2 cạnh tỉ lệ, góc xen giữa bằng nhau<br>- 3 góc bằng
+                                nhau</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3>Câu hỏi</h3>
+                            <p>Công thức căn bậc 2 của tích?</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>√(ab) = √a × √b<br>(với a, b ≥ 0)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LITERATURE TAB -->
+        <div id="literature" class="tab-content">
+            <div class="notes-section">
+                <h2>📚 Ghi Chú Ngữ Văn</h2>
+
+                <div class="note-item">
+                    <h4>📖 Cấu Trúc Bài Văn Nghị Luận Xã Hội</h4>
+                    <ul>
+                        <li><strong>Mở bài:</strong> Dẫn dắt, nêu vấn đề</li>
+                        <li><strong>Thân bài:</strong>
+                            <ul>
+                                <li>Giải thích khái niệm</li>
+                                <li>Phân tích, luận giải (2-3 luận điểm)</li>
+                                <li>Dẫn chứng cụ thể (thực tế, văn học, lịch sử)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Kết bài:</strong> Khẳng định lại vấn đề, nêu tác dụng, bài học</li>
+                    </ul>
+                </div>
+
+                <div class="note-item">
+                    <h4>📖 Các Biện Pháp Tu Từ Thường Gặp</h4>
+                    <ul>
+                        <li><strong>So sánh:</strong> Dùng "như", "tựa", "ví", "tợ"...</li>
+                        <li><strong>Ẩn dụ:</strong> So sánh ngầm, không dùng từ liên kết</li>
+                        <li><strong>Nhân hóa:</strong> Gán đặc điểm con người cho sự vật</li>
+                        <li><strong>Hoán dụ:</strong> Dùng cái này gọi cái khác có liên quan</li>
+                        <li><strong>Nói quá:</strong> Phóng đại để gây ấn tượng</li>
+                        <li><strong>Nói giảm:</strong> Nói nhẹ hơn thực tế</li>
+                    </ul>
+                </div>
+
+                <div class="note-item">
+                    <h4>📖 Tác Phẩm Quan Trọng Cần Nhớ</h4>
+                    <ul>
+                        <li><strong>Vợ Nhặt</strong> - Kim Lân: Tình người trong hoạn nạn</li>
+                        <li><strong>Chiếc Lược Ngà</strong> - Nguyễn Quang Sáng: Tình yêu thương con</li>
+                        <li><strong>Tức Nước Vỡ Bờ</strong> - Nguyễn Trãi: Tinh thần yêu nước</li>
+                        <li><strong>Đất Nước</strong> - Nguyễn Khoa Điềm: Tình yêu quê hương</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <h4>💡 Mẹo Viết Văn Hay</h4>
+                    <p>Luôn có dẫn chứng cụ thể! Mỗi luận điểm cần ít nhất 1-2 ví dụ thực tế hoặc văn học.</p>
+                </div>
+            </div>
+
+            <h3 style="color: white; text-align: center; margin: 30px 0;">🎴 Flashcards Ngữ Văn</h3>
+            <div class="flashcard-grid">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3>Câu hỏi</h3>
+                            <p>Cấu trúc bài văn nghị luận xã hội?</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>1. Mở bài: Dẫn dắt<br>2. Thân bài: Phân tích + Dẫn chứng<br>3. Kết bài: Khẳng định</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3>Câu hỏi</h3>
+                            <p>So sánh và ẩn dụ khác nhau như thế nào?</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>So sánh: có từ liên kết (như, tựa)<br>Ẩn dụ: không có từ liên kết, so sánh ngầm</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3>Câu hỏi</h3>
+                            <p>Tác giả của "Vợ Nhặt"?</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>Kim Lân<br>Chủ đề: Tình người trong hoạn nạn</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3>Câu hỏi</h3>
+                            <p>Nhân hóa là gì?</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>Gán đặc điểm, hành động của con người cho sự vật, hiện tượng tự nhiên</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3>Câu hỏi</h3>
+                            <p>3 yếu tố quan trọng của văn nghị luận?</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>1. Luận điểm rõ ràng<br>2. Luận cứ chặt chẽ<br>3. Dẫn chứng thuyết phục</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3>Câu hỏi</h3>
+                            <p>Tác giả "Đất Nước"?</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>Nguyễn Khoa Điềm<br>Thể loại: Thơ tự do</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ENGLISH TAB -->
+        <div id="english" class="tab-content">
+            <div class="notes-section">
+                <h2>🇬🇧 Ghi Chú Tiếng Anh</h2>
+
+                <div class="note-item">
+                    <h4>📘 12 Thì Tiếng Anh Cơ Bản</h4>
+                    <ul>
+                        <li><strong>Present Simple:</strong> S + V(s/es) - Thói quen, sự thật</li>
+                        <li><strong>Present Continuous:</strong> S + am/is/are + V-ing - Đang xảy ra</li>
+                        <li><strong>Present Perfect:</strong> S + have/has + V3 - Kết quả hiện tại</li>
+                        <li><strong>Past Simple:</strong> S + V2/V-ed - Quá khứ đơn</li>
+                        <li><strong>Past Continuous:</strong> S + was/were + V-ing - Đang xảy ra trong QK</li>
+                        <li><strong>Future Simple:</strong> S + will + V - Tương lai đơn</li>
+                    </ul>
+                </div>
+
+                <div class="note-item">
+                    <h4>📘 Cấu Trúc Câu Điều Kiện</h4>
+                    <ul>
+                        <li><strong>Type 0:</strong> If + S + V(s/es), S + V(s/es) - Sự thật hiển nhiên</li>
+                        <li><strong>Type 1:</strong> If + S + V(s/es), S + will + V - Có thể xảy ra</li>
+                        <li><strong>Type 2:</strong> If + S + V2/V-ed, S + would + V - Không có thật ở hiện tại</li>
+                        <li><strong>Type 3:</strong> If + S + had + V3, S + would have + V3 - Không có thật trong QK
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="note-item">
+                    <h4>📘 Từ Vựng Quan Trọng (Top 50)</h4>
+                    <ul>
+                        <li>Achievement (n) - Thành tựu</li>
+                        <li>Challenge (n) - Thử thách</li>
+                        <li>Confident (adj) - Tự tin</li>
+                        <li>Develop (v) - Phát triển</li>
+                        <li>Environment (n) - Môi trường</li>
+                        <li>Experience (n) - Kinh nghiệm</li>
+                        <li>Improve (v) - Cải thiện</li>
+                        <li>Knowledge (n) - Kiến thức</li>
+                        <li>Opportunity (n) - Cơ hội</li>
+                        <li>Success (n) - Thành công</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <h4>💡 Mẹo Học Từ Vựng</h4>
+                    <p>Học từ vựng theo nhóm chủ đề và luôn học kèm ví dụ câu!</p>
+                </div>
+            </div>
+
+            <h3 style="color: white; text-align: center; margin: 30px 0;">🎴 Flashcards Tiếng Anh</h3>
+            <div class="flashcard-grid">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3>Question</h3>
+                            <p>Present Perfect tense structure?</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>S + have/has + V3<br>Example: I have studied English.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3>Question</h3>
+                            <p>Conditional Type 2?</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>If + S + V2/V-ed, S + would + V<br>Example: If I were you, I would study harder.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3>Vocabulary</h3>
+                            <p>Achievement</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>Thành tựu<br>Example: Her achievement in math is impressive.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3>Question</h3>
+                            <p>Past Continuous structure?</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>S + was/were + V-ing<br>Example: I was studying at 8 PM.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3>Vocabulary</h3>
+                            <p>Environment</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>Môi trường<br>Example: We should protect the environment.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h3>Question</h3>
+                            <p>Future Simple structure?</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>S + will + V<br>Example: I will pass the exam.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; padding: 20px; background: white; border-radius: 8px; text-align: center;">
+            <p style="margin: 0; color: #666;">
+                <a href="kehoach.html" style="color: #f5576c; text-decoration: none; font-weight: bold;">← Quay lại Kế
+                    Hoạch</a> |
+                <a href="index.html" style="color: #f5576c; text-decoration: none; font-weight: bold;">Trang chủ</a>
+            </p>
+        </div>
+    </main>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
