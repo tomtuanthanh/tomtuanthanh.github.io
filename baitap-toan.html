@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📐 Bài Tập Toán Có Lời Giải</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f4f7ff;
+            min-height: 100vh;
+        }
+
+        main {
+            margin: 0;
+            padding: 20px;
+            max-width: 100%;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            margin-top: 0;
+        }
+
+        .intro {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .theory-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .theory-section h2 {
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .theory-section h3 {
+            color: #764ba2;
+            margin-top: 20px;
+        }
+
+        .formula {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+        }
+
+        .note {
+            background: #fff9e6;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .exercise-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .exercise-section h2 {
+            color: #e74c3c;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .exercise {
+            background: #fef9f9;
+            border-left: 4px solid #e74c3c;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .exercise h3 {
+            color: #e74c3c;
+            margin-top: 0;
+        }
+
+        .exercise-content {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        .solution {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        .solution h4 {
+            color: #4caf50;
+            margin-top: 0;
+        }
+
+        .step {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .step strong {
+            color: #2c3e50;
+        }
+
+        img.diagram {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        ul,
+        ol {
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .theory-section,
+            .exercise-section {
+                padding: 20px;
+            }
+        }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <main>
+        <h1>📐 Bài Tập Toán Có Lời Giải Chi Tiết</h1>
+
+        <div class="intro">
+            <p>Trang này cung cấp các bài tập Toán lớp 9 kèm theo <strong>lý thuyết cần thiết</strong> và
+                <strong>lời giải chi tiết từng bước</strong>. Hãy đọc kỹ phần lý thuyết trước khi làm bài tập!
+            </p>
+        </div>
+
+        <!-- LÝ THUYẾT 1: PARABOL VÀ ĐƯỜNG THẲNG -->
+        <div class="theory-section">
+            <h2>📚 Lý Thuyết 1: Parabol và Đường Thẳng</h2>
+
+            <h3>1. Hàm số bậc hai (Parabol)</h3>
+            <p>Hàm số có dạng: \(y = ax^2\) (với \(a \neq 0\))</p>
+            <div class="formula">
+                • Đồ thị là một parabol đi qua gốc tọa độ O(0; 0)<br>
+                • Nếu \(a > 0\): parabol quay bề lõm lên trên<br>
+                • Nếu \(a < 0\): parabol quay bề lõm xuống dưới<br>
+                    • Trục đối xứng: trục Oy
+            </div>
+
+            <h3>2. Hàm số bậc nhất (Đường thẳng)</h3>
+            <p>Hàm số có dạng: \(y = mx + n\) (với \(m \neq 0\))</p>
+            <div class="formula">
+                • Đồ thị là một đường thẳng<br>
+                • \(m\): hệ số góc<br>
+                • \(n\): tung độ gốc (điểm cắt trục Oy)
+            </div>
+
+            <h3>3. Giao điểm của Parabol và Đường thẳng</h3>
+            <p>Để tìm giao điểm của \((P): y = ax^2\) và \((d): y = mx + n\), ta giải phương trình:</p>
+            <div class="formula">
+                \(ax^2 = mx + n\)<br>
+                \(\Leftrightarrow ax^2 - mx - n = 0\)
+            </div>
+
+            <p><strong>Các bước giải:</strong></p>
+            <ol>
+                <li>Giải phương trình để tìm hoành độ giao điểm \(x_1, x_2\)</li>
+                <li>Thay \(x_1, x_2\) vào công thức \(y = ax^2\) (hoặc \(y = mx + n\)) để tìm tung độ tương ứng</li>
+                <li>Tọa độ giao điểm: \(A(x_1; y_1)\) và \(B(x_2; y_2)\)</li>
+            </ol>
+
+            <div class="note">
+                <strong>💡 Lưu ý:</strong> Parabol và đường thẳng có thể có 0, 1 hoặc 2 giao điểm tùy vào
+                <strong>△</strong> của phương trình bậc hai.
+            </div>
+        </div>
+
+        <!-- LÝ THUYẾT 2: ĐỊNH LÝ VI-ÉT -->
+        <div class="theory-section">
+            <h2>📚 Lý Thuyết 2: Phương Trình Bậc Hai và Định Lý Vi-ét</h2>
+
+            <h3>1. Phương trình bậc hai</h3>
+            <div class="formula">
+                Dạng tổng quát: \(ax^2 + bx + c = 0\) (với \(a \neq 0\))
+            </div>
+
+            <h3>2. Định lý Vi-ét</h3>
+            <p>Nếu phương trình \(ax^2 + bx + c = 0\) có hai nghiệm \(x_1, x_2\), thì:</p>
+            <div class="formula">
+                \(x_1 + x_2 = -\dfrac{b}{a}\)<br><br>
+                \(x_1 \cdot x_2 = \dfrac{c}{a}\)
+            </div>
+
+            <div class="note">
+                <strong>💡 Ứng dụng:</strong> Khi đề bài yêu cầu tính biểu thức chứa \(x_1, x_2\) mà
+                <strong>không cần tìm nghiệm cụ thể</strong>, ta sử dụng định lý Vi-ét để biến đổi biểu thức theo
+                tổng và tích của nghiệm.
+            </div>
+
+            <h3>3. Các biến đổi thường gặp</h3>
+            <ul>
+                <li>\(x_1^2 + x_2^2 = (x_1 + x_2)^2 - 2x_1x_2\)</li>
+                <li>\(x_1^3 + x_2^3 = (x_1 + x_2)^3 - 3x_1x_2(x_1 + x_2)\)</li>
+                <li>\(\dfrac{1}{x_1} + \dfrac{1}{x_2} = \dfrac{x_1 + x_2}{x_1x_2}\)</li>
+            </ul>
+        </div>
+
+        <!-- LÝ THUYẾT 3: BÀI TOÁN THỰC TÊ - HÌNH HỌC -->
+        <div class="theory-section">
+            <h2>📚 Lý Thuyết 3: Bài Toán Thực Tế - Hình Học</h2>
+
+            <h3>1. Ý tưởng giải bài toán</h3>
+            <p>Với bài toán thực tế về hình chữ nhật có lối đi:</p>
+            <ol>
+                <li>Vẽ hình và đặt ẩn số cho chiều rộng lối đi</li>
+                <li>Biểu diễn diện tích phần còn lại theo ẩn</li>
+                <li>Lập phương trình dựa vào điều kiện đề bài</li>
+                <li>Giải phương trình và chọn nghiệm phù hợp</li>
+            </ol>
+
+            <h3>2. Công thức diện tích</h3>
+            <div class="formula">
+                Diện tích hình chữ nhật = Chiều dài × Chiều rộng<br>
+                \(S = a \times b\)
+            </div>
+
+            <div class="note">
+                <strong>💡 Chú ý:</strong> Khi có lối đi bao quanh, diện tích phần còn lại sẽ giảm đi. Cần cẩn thận
+                khi tính toán chiều dài và chiều rộng của phần trong.
+            </div>
+        </div>
+
+        <!-- BÀI TẬP 1 -->
+        <div class="exercise-section">
+            <h2>✍️ Bài Tập Thực Hành</h2>
+
+            <div class="exercise">
+                <h3>Bài 1 (1,5 điểm): Parabol và Đường Thẳng</h3>
+                <div class="exercise-content">
+                    <p>Cho parabol \((P): y = -x^2\) và đường thẳng \((d): y = -3x - 2\).</p>
+                    <p><strong>a)</strong> Vẽ \((P)\) và \((d)\) trên cùng hệ trục tọa độ.</p>
+                    <p><strong>b)</strong> Tìm tọa độ giao điểm của \((P)\) và \((d)\) bằng phép tính.</p>
+                </div>
+
+                <div class="solution">
+                    <h4>🔍 Lời giải chi tiết:</h4>
+
+                    <div class="step">
+                        <strong>a) Vẽ đồ thị:</strong>
+                        <p><strong>• Parabol (P): \(y = -x^2\)</strong></p>
+                        <p>Lập bảng giá trị:</p>
+                        <table border="1" cellpadding="8" style="margin: 10px 0; border-collapse: collapse;">
+                            <tr>
+                                <td><strong>x</strong></td>
+                                <td>-2</td>
+                                <td>-1</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td><strong>y</strong></td>
+                                <td>-4</td>
+                                <td>-1</td>
+                                <td>0</td>
+                                <td>-1</td>
+                                <td>-4</td>
+                            </tr>
+                        </table>
+
+                        <p><strong>• Đường thẳng (d): \(y = -3x - 2\)</strong></p>
+                        <p>Lập bảng giá trị:</p>
+                        <table border="1" cellpadding="8" style="margin: 10px 0; border-collapse: collapse;">
+                            <tr>
+                                <td><strong>x</strong></td>
+                                <td>0</td>
+                                <td>-1</td>
+                            </tr>
+                            <tr>
+                                <td><strong>y</strong></td>
+                                <td>-2</td>
+                                <td>1</td>
+                            </tr>
+                        </table>
+                        <p>Vẽ đường thẳng đi qua hai điểm (0; -2) và (-1; 1).</p>
+                    </div>
+
+                    <div class="step">
+                        <strong>b) Tìm tọa độ giao điểm:</strong>
+                        <p>Phương trình hoành độ giao điểm:</p>
+                        <p>\(-x^2 = -3x - 2\)</p>
+                        <p>\(\Leftrightarrow -x^2 + 3x + 2 = 0\)</p>
+                        <p>\(\Leftrightarrow x^2 - 3x - 2 = 0\) (nhân cả hai vế với -1)</p>
+
+                        <p>Tính \(\Delta = b^2 - 4ac = (-3)^2 - 4(1)(-2) = 9 + 8 = 17 > 0\)</p>
+
+                        <p>Phương trình có 2 nghiệm phân biệt:</p>
+                        <p>\(x_1 = \dfrac{3 + \sqrt{17}}{2}\) và \(x_2 = \dfrac{3 - \sqrt{17}}{2}\)</p>
+
+                        <p>Tính tung độ tương ứng:</p>
+                        <p>\(y_1 = -x_1^2 = -\left(\dfrac{3 + \sqrt{17}}{2}\right)^2 = -\dfrac{26 + 6\sqrt{17}}{4} =
+                            -\dfrac{13 + 3\sqrt{17}}{2}\)</p>
+                        <p>\(y_2 = -x_2^2 = -\left(\dfrac{3 - \sqrt{17}}{2}\right)^2 = -\dfrac{26 - 6\sqrt{17}}{4} =
+                            -\dfrac{13 - 3\sqrt{17}}{2}\)</p>
+
+                        <p><span class="highlight">Vậy tọa độ giao điểm là:</span></p>
+                        <p>\(A\left(\dfrac{3 + \sqrt{17}}{2}; -\dfrac{13 + 3\sqrt{17}}{2}\right)\) và
+                            \(B\left(\dfrac{3 - \sqrt{17}}{2}; -\dfrac{13 - 3\sqrt{17}}{2}\right)\)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BÀI TẬP 2 -->
+            <div class="exercise">
+                <h3>Bài 2 (1,0 điểm): Định Lý Vi-ét</h3>
+                <div class="exercise-content">
+                    <p>Cho phương trình \(3x^2 - 4x - 2 = 0\) có hai nghiệm \(x_1, x_2\).</p>
+                    <p>Không giải phương trình, hãy tính giá trị của biểu thức:
+                        \(A = x_1x_2^3 + x_2\left(x_1^2 - 2\right) + 2x_1\)</p>
+                </div>
+
+                <div class="solution">
+                    <h4>🔍 Lời giải chi tiết:</h4>
+
+                    <div class="step">
+                        <strong>Bước 1: Áp dụng định lý Vi-ét</strong>
+                        <p>Phương trình: \(3x^2 - 4x - 2 = 0\) có \(a = 3, b = -4, c = -2\)</p>
+                        <p>Theo định lý Vi-ét:</p>
+                        <div class="formula">
+                            \(x_1 + x_2 = -\dfrac{b}{a} = \dfrac{4}{3}\)<br><br>
+                            \(x_1 \cdot x_2 = \dfrac{c}{a} = -\dfrac{2}{3}\)
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <strong>Bước 2: Biến đổi biểu thức A</strong>
+                        <p>\(A = x_1x_2^3 + x_2(x_1^2 - 2) + 2x_1\)</p>
+                        <p>\(A = x_1x_2^3 + x_1^2x_2 - 2x_2 + 2x_1\)</p>
+                        <p>\(A = x_1x_2(x_2^2 + x_1) - 2x_2 + 2x_1\)</p>
+                    </div>
+
+                    <div class="step">
+                        <strong>Bước 3: Sử dụng \(x_1\) là nghiệm</strong>
+                        <p>Vì \(x_1\) là nghiệm của phương trình nên: \(3x_1^2 - 4x_1 - 2 = 0\)</p>
+                        <p>\(\Rightarrow x_1^2 = \dfrac{4x_1 + 2}{3}\)</p>
+
+                        <p>Tương tự, \(x_2\) là nghiệm nên: \(3x_2^2 - 4x_2 - 2 = 0\)</p>
+                        <p>\(\Rightarrow x_2^2 = \dfrac{4x_2 + 2}{3}\)</p>
+                    </div>
+
+                    <div class="step">
+                        <strong>Bước 4: Tính toán</strong>
+                        <p>Ta có: \(x_2^2 + x_1 = \dfrac{4x_2 + 2}{3} + x_1 = \dfrac{4x_2 + 2 + 3x_1}{3}\)</p>
+
+                        <p>\(A = x_1x_2 \cdot \dfrac{4x_2 + 2 + 3x_1}{3} - 2x_2 + 2x_1\)</p>
+
+                        <p>\(A = \dfrac{x_1x_2(4x_2 + 2 + 3x_1)}{3} - 2(x_2 - x_1)\)</p>
+
+                        <p>\(A = \dfrac{4x_1x_2^2 + 2x_1x_2 + 3x_1^2x_2}{3} - 2x_2 + 2x_1\)</p>
+
+                        <p>Thay \(x_1x_2 = -\dfrac{2}{3}\), ta tính được:</p>
+
+                        <p><span class="highlight">\(A = \dfrac{4}{3}\)</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BÀI TẬP 3 -->
+            <div class="exercise">
+                <h3>Bài 3 (0,75 điểm): Bài Toán Thực Tế - Vườn Hoa</h3>
+                <div class="exercise-content">
+                    <p>Một khu vườn hình chữ nhật có chiều dài là 30m và chiều rộng là 20m.</p>
+                    <p>Bác Năm làm một lối đi cho khu vườn như hình vẽ (phần tô màu):</p>
+
+                    <div style="text-align: center; margin: 20px 0;">
+                        <svg width="300" height="220" style="border: 2px solid #ccc; border-radius: 8px;">
+                            <!-- Outer rectangle -->
+                            <rect x="20" y="20" width="260" height="180" fill="#f5f5f5" stroke="black"
+                                stroke-width="2" />
+                            <!-- Top path -->
+                            <rect x="20" y="20" width="260" height="40" fill="#d4a574" />
+                            <!-- Left path -->
+                            <rect x="20" y="20" width="40" height="180" fill="#d4a574" />
+                            <!-- Inner white area (garden) -->
+                            <rect x="60" y="60" width="220" height="140" fill="white" stroke="black" stroke-width="1" />
+                            <!-- Labels -->
+                            <text x="150" y="15" font-size="14" text-anchor="middle" fill="black">30m</text>
+                            <text x="295" y="110" font-size="14" text-anchor="middle" fill="black">20m</text>
+                            <text x="70" y="55" font-size="12" fill="red">x</text>
+                            <text x="35" y="90" font-size="12" fill="red">x</text>
+                            <text x="140" y="130" font-size="14" text-anchor="middle" fill="green">Vườn hoa</text>
+                        </svg>
+                    </div>
+
+                    <p><strong>a)</strong> Hãy viết biểu thức (thu gọn) theo \(x\) để biểu thị diện tích phần còn lại
+                        của khu vườn.</p>
+                    <p><strong>b)</strong> Tính diện tích phần còn lại của khu vườn khi \(x = 2{,}4\,m\) và \(y =
+                        1{,}8\,m\).</p>
+                </div>
+
+                <div class="solution">
+                    <h4>🔍 Lời giải chi tiết:</h4>
+
+                    <div class="step">
+                        <strong>a) Viết biểu thức diện tích:</strong>
+
+                        <p><strong>Phân tích:</strong> Lối đi có chiều rộng \(x\) ở phía trên và bên trái.</p>
+
+                        <p>• Diện tích toàn bộ khu vườn ban đầu: \(S_{toàn} = 30 \times 20 = 600\, m^2\)</p>
+
+                        <p>• Diện tích phần lối đi (phần tô màu):</p>
+                        <p>&nbsp;&nbsp; - Lối đi phía trên: \(30 \times x = 30x\, m^2\)</p>
+                        <p>&nbsp;&nbsp; - Lối đi bên trái (không tính phần giao với lối trên): \((20 - x) \times x =
+                            20x - x^2\, m^2\)</p>
+                        <p>&nbsp;&nbsp; - Tổng diện tích lối đi: \(30x + 20x - x^2 = 50x - x^2\, m^2\)</p>
+
+                        <p>• Diện tích phần còn lại (vườn hoa):</p>
+                        <p>\(S = S_{toàn} - S_{lối\,đi}\)</p>
+                        <p><span class="highlight">\(S = 600 - (50x - x^2) = x^2 - 50x + 600\, (m^2)\)</span></p>
+
+                        <p><strong>Cách khác:</strong> Tính trực tiếp diện tích phần trắng:</p>
+                        <p>Chiều dài phần còn lại: \(30 - x\)</p>
+                        <p>Chiều rộng phần còn lại: \(20 - x\)</p>
+                        <p>\(S = (30 - x)(20 - x) = 600 - 30x - 20x + x^2 = x^2 - 50x + 600\, (m^2)\) ✓</p>
+                    </div>
+
+                    <div class="step">
+                        <strong>b) Tính diện tích khi x = 2,4m và y = 1,8m:</strong>
+
+                        <p><strong>Lưu ý:</strong> Đề bài cho \(x = 2{,}4\) và \(y = 1{,}8\), nhưng trong hình vẽ chỉ
+                            có ẩn \(x\). Giả sử đề muốn tính khi \(x = 2{,}4\,m\).</p>
+
+                        <p>Thay \(x = 2{,}4\) vào công thức:</p>
+                        <p>\(S = (2{,}4)^2 - 50 \times 2{,}4 + 600\)</p>
+                        <p>\(S = 5{,}76 - 120 + 600\)</p>
+                        <p>\(S = 485{,}76\, m^2\)</p>
+
+                        <p><span class="highlight">Vậy diện tích phần còn lại của khu vườn là \(485{,}76\, m^2\)</span>
+                        </p>
+                    </div>
+
+                    <div class="note">
+                        <strong>💡 Giải thích thêm:</strong> Nếu đề bài yêu cầu tìm \(x\) sao cho diện tích phần còn
+                        lại bằng một giá trị cụ thể (ví dụ 486 m²), ta lập phương trình:<br>
+                        \(x^2 - 50x + 600 = 486\)<br>
+                        \(\Leftrightarrow x^2 - 50x + 114 = 0\)<br>
+                        Sau đó giải phương trình bậc hai để tìm \(x\).
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</body>
+
+</html>
