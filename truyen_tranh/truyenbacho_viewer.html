@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Con Đường Cứu Nước — Truyện Tranh</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #f0d080;
+      --red: #8b1a1a;
+      --red-light: #c0392b;
+      --bg: #0f0c09;
+      --bg2: #1a1410;
+      --bg3: #241e17;
+      --text: #e8dcc8;
+      --text-muted: #9a8a72;
+      --border: #3a2e20;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Serif', serif;
+      min-height: 100vh;
+    }
+
+    /* ── HERO HEADER ── */
+    header {
+      background: linear-gradient(180deg, #1a0a0a 0%, #0f0c09 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 1rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .star-row {
+      color: var(--gold);
+      font-size: 0.9rem;
+      letter-spacing: 0.6em;
+      margin-bottom: 0.8rem;
+      opacity: 0.7;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 6vw, 3.8rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold), #a07830);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+    header .subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .badge-row {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 1.2rem;
+    }
+    .badge {
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── PROGRESS BAR ── */
+    .progress-wrap {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      padding: 0.9rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .progress-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    .progress-bar-outer {
+      flex: 1;
+      max-width: 400px;
+      height: 6px;
+      background: var(--border);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .progress-bar-inner {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      border-radius: 999px;
+      transition: width 0.4s ease;
+    }
+    .progress-count {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      color: var(--gold);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* ── NAV TABS ── */
+    .nav-scroll {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .nav-scroll::-webkit-scrollbar { display: none; }
+    .nav-tabs {
+      display: flex;
+      padding: 0 1rem;
+      gap: 0.2rem;
+      min-width: max-content;
+    }
+    .nav-tab {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      padding: 0.7rem 1rem;
+      border: none;
+      background: none;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .nav-tab:hover { color: var(--text); }
+    .nav-tab.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+    .nav-tab.locked { opacity: 0.4; cursor: default; }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .page-section {
+      display: none;
+      animation: fadeIn 0.35s ease;
+    }
+    .page-section.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Page header */
+    .page-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .page-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--gold);
+      opacity: 0.25;
+      line-height: 1;
+    }
+    .page-info h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--gold-light);
+    }
+    .page-info p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 0.2rem;
+    }
+
+    /* Comic image */
+    .comic-frame {
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,168,76,0.1);
+      position: relative;
+    }
+    .comic-frame img {
+      width: 100%;
+      display: block;
+    }
+    .color-tag {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Placeholder card for unavailable pages */
+    .placeholder-frame {
+      border: 2px dashed var(--border);
+      border-radius: 8px;
+      background: var(--bg3);
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 3rem;
+    }
+    .placeholder-icon { font-size: 3rem; opacity: 0.3; }
+    .placeholder-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+    .placeholder-note {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      color: var(--border);
+      text-align: center;
+      max-width: 320px;
+    }
+    .quota-badge {
+      background: rgba(139, 26, 26, 0.2);
+      border: 1px solid rgba(139, 26, 26, 0.5);
+      color: #e07070;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+    }
+
+    /* Scene description */
+    .scene-desc {
+      margin-top: 1.2rem;
+      background: var(--bg3);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 6px 6px 0;
+      padding: 1rem 1.2rem;
+    }
+    .scene-desc h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+    .panel-list { list-style: none; }
+    .panel-list li {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      padding: 0.3rem 0;
+      border-bottom: 1px solid rgba(58,46,32,0.4);
+      display: flex;
+      gap: 0.5rem;
+    }
+    .panel-list li:last-child { border-bottom: none; }
+    .panel-tag {
+      color: var(--gold);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 0.05rem;
+    }
+
+    /* Bottom navigation */
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2rem;
+      gap: 1rem;
+    }
+    .nav-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 0.65rem 1.2rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .nav-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(201,168,76,0.05);
+    }
+    .nav-btn:disabled {
+      opacity: 0.3;
+      cursor: default;
+      pointer-events: none;
+    }
+    .nav-btn.primary {
+      background: linear-gradient(135deg, #a07830, var(--gold));
+      border-color: transparent;
+      color: #1a1410;
+      font-weight: 700;
+    }
+    .nav-btn.primary:hover {
+      filter: brightness(1.1);
+      color: #1a1410;
+    }
+    .page-indicator {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .page-indicator span { color: var(--gold); font-weight: 600; }
+
+    /* Color tags */
+    .tag-gold { background: rgba(201,168,76,0.15); color: var(--gold); }
+    .tag-blue { background: rgba(80,100,140,0.2); color: #90a8d0; }
+    .tag-red  { background: rgba(180,40,40,0.2); color: #e07070; }
+    .tag-tri  { background: rgba(40,120,60,0.2); color: #70c080; }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      border-top: 1px solid var(--border);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 2rem;
+    }
+    footer em { color: var(--gold); font-style: normal; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="star-row">✦ ✦ ✦</div>
+  <h1>Con Đường Cứu Nước</h1>
+  <div class="subtitle">Truyện tranh lịch sử · 10 trang · Phiên bản tinh gọn</div>
+  <div class="badge-row">
+    <span class="badge">📚 Lịch sử</span>
+    <span class="badge">🎨 Manga phong cách Studio Ghibli</span>
+    <span class="badge">🇻🇳 Tiếng Việt</span>
+    <span class="badge">8–18 tuổi</span>
+  </div>
+</header>
+
+<!-- Progress Bar -->
+<div class="progress-wrap">
+  <span class="progress-label">Tiến độ đọc</span>
+  <div class="progress-bar-outer">
+    <div class="progress-bar-inner" id="progressBar" style="width:10%"></div>
+  </div>
+  <span class="progress-count" id="progressCount">Trang 1 / 10</span>
+</div>
+
+<!-- Chapter nav tabs -->
+<div class="nav-scroll">
+  <div class="nav-tabs" id="navTabs">
+    <button class="nav-tab active" onclick="goTo(0)">Trang 1</button>
+    <button class="nav-tab" onclick="goTo(1)">Trang 2</button>
+    <button class="nav-tab" onclick="goTo(2)">Trang 3</button>
+    <button class="nav-tab" onclick="goTo(3)">Trang 4</button>
+    <button class="nav-tab" onclick="goTo(4)">Trang 5</button>
+    <button class="nav-tab" onclick="goTo(5)">Trang 6</button>
+    <button class="nav-tab" onclick="goTo(6)">Trang 7</button>
+    <button class="nav-tab locked" onclick="goTo(7)">Trang 8 🔒</button>
+    <button class="nav-tab locked" onclick="goTo(8)">Trang 9 🔒</button>
+    <button class="nav-tab locked" onclick="goTo(9)">Trang 10 🔒</button>
+  </div>
+</div>
+
+<main>
+
+  <!-- PAGE 1 -->
+  <section class="page-section active" id="page-0">
+    <div class="page-header">
+      <div class="page-num">01</div>
+      <div class="page-info">
+        <h2>Quê Hương và Câu Hỏi</h2>
+        <p>Chương 1 — Hạt giống · Năm 1900, Làng Sen</p>
+      </div>
+    </div>
+    <div class="comic-frame">
+      <img src="pages/page_01.png" alt="Trang 1 — Quê hương và câu hỏi đầu tiên" />
+      <span class="color-tag tag-gold">🌾 Vàng đất</span>
+    </div>
+    <div class="scene-desc">
+      <h3>Các panel trong trang này</h3>
+      <ul class="panel-list">
+        <li><span class="panel-tag">P1</span> Cánh đồng làng Sen vàng rực — cậu bé Thành 10 tuổi ngồi nhìn trời</li>
+        <li><span class="panel-tag">P2</span> Lính Pháp thu thuế thóc — nông dân quỳ lạy khóc lóc</li>
+        <li><span class="panel-tag">P3</span> Cận cảnh bàn tay nhỏ nắm chặt, run — <em>"Tại sao?"</em></li>
+      </ul>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-btn" disabled>← Trước</button>
+      <span class="page-indicator">Trang <span>1</span> / 10</span>
+      <button class="nav-btn primary" onclick="goTo(1)">Tiếp theo →</button>
+    </div>
+  </section>
+
+  <!-- PAGE 2 -->
+  <section class="page-section" id="page-1">
+    <div class="page-header">
+      <div class="page-num">02</div>
+      <div class="page-info">
+        <h2>Đêm Tâm Sự Cha Con</h2>
+        <p>Chương 1 — Hạt giống · Câu hỏi được gieo</p>
+      </div>
+    </div>
+    <div class="comic-frame">
+      <img src="pages/page_02.png" alt="Trang 2 — Đêm tâm sự cha con" />
+      <span class="color-tag tag-gold">🌙 Vàng đêm</span>
+    </div>
+    <div class="scene-desc">
+      <h3>Các panel trong trang này</h3>
+      <ul class="panel-list">
+        <li><span class="panel-tag">P1</span> Cha con ngồi hiên nhìn trăng, ánh đèn dầu vàng ấm</li>
+        <li><span class="panel-tag">P2</span> Thành hỏi: <em>"Cha ơi, sao mình lại mất nước?"</em></li>
+        <li><span class="panel-tag">P3</span> Cha đáp: <em>"Nhiều người đã thử... nhưng chưa tìm được con đường đúng."</em></li>
+        <li><span class="panel-tag">P4</span> Cận mắt Thành nhìn trăng — <em>"Con đường đúng... là con đường nào?"</em></li>
+      </ul>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-btn" onclick="goTo(0)">← Trước</button>
+      <span class="page-indicator">Trang <span>2</span> / 10</span>
+      <button class="nav-btn primary" onclick="goTo(2)">Tiếp theo →</button>
+    </div>
+  </section>
+
+  <!-- PAGE 3 -->
+  <section class="page-section" id="page-2">
+    <div class="page-header">
+      <div class="page-num">03</div>
+      <div class="page-info">
+        <h2>Trường Quốc Học Huế</h2>
+        <p>Chương 2 — Ra đi để trở về · Năm 1906</p>
+      </div>
+    </div>
+    <div class="comic-frame">
+      <img src="pages/page_03.png" alt="Trang 3 — Trường Quốc học Huế" />
+      <span class="color-tag tag-blue">🏛️ Xám xanh</span>
+    </div>
+    <div class="scene-desc">
+      <h3>Các panel trong trang này</h3>
+      <ul class="panel-list">
+        <li><span class="panel-tag">P1</span> Cổng trường Quốc học Huế — 1906, Thành 16 tuổi ra Huế học</li>
+        <li><span class="panel-tag">P2</span> Trong lớp học, Thành chăm chú nghe giảng tiếng Pháp</li>
+        <li><span class="panel-tag">P3</span> Qua cửa sổ: phu kéo xe mồ hôi ướt — ánh mắt Thành đau xót</li>
+        <li><span class="panel-tag">P4</span> Thành dịch lời cho bà con biểu tình trước cổng trường</li>
+      </ul>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-btn" onclick="goTo(1)">← Trước</button>
+      <span class="page-indicator">Trang <span>3</span> / 10</span>
+      <button class="nav-btn primary" onclick="goTo(3)">Tiếp theo →</button>
+    </div>
+  </section>
+
+  <!-- PAGE 4 -->
+  <section class="page-section" id="page-3">
+    <div class="page-header">
+      <div class="page-num">04</div>
+      <div class="page-info">
+        <h2>Quyết Định Lịch Sử</h2>
+        <p>Chương 2 — Ra đi để trở về · 5/6/1911</p>
+      </div>
+    </div>
+    <div class="comic-frame">
+      <img src="pages/page_04.png" alt="Trang 4 — Quyết định lịch sử" />
+      <span class="color-tag tag-blue">⚓ Hoàng hôn vàng</span>
+    </div>
+    <div class="scene-desc">
+      <h3>Các panel trong trang này</h3>
+      <ul class="panel-list">
+        <li><span class="panel-tag">P1</span> Cảng Sài Gòn — con tàu Pháp khổng lồ cập bến, 1911</li>
+        <li><span class="panel-tag">P2</span> Thành 21 tuổi nhìn tàu — mắt kiên định, tay cầm quyển sách nhỏ</li>
+        <li><span class="panel-tag">P3</span> Flashback ký ức: cha, dân khóc, cổng trường đóng lại</li>
+        <li><span class="panel-tag">P4</span> Thành bước lên tàu, không nhìn lại — <em>"5 tháng 6 năm 1911..."</em></li>
+      </ul>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-btn" onclick="goTo(2)">← Trước</button>
+      <span class="page-indicator">Trang <span>4</span> / 10</span>
+      <button class="nav-btn primary" onclick="goTo(4)">Tiếp theo →</button>
+    </div>
+  </section>
+
+  <!-- PAGE 5 -->
+  <section class="page-section" id="page-4">
+    <div class="page-header">
+      <div class="page-num">05</div>
+      <div class="page-info">
+        <h2>Vượt Đại Dương</h2>
+        <p>Chương 3 — Bôn ba · Học từ sóng biển</p>
+      </div>
+    </div>
+    <div class="comic-frame">
+      <img src="pages/page_05.png" alt="Trang 5 — Vượt đại dương" />
+      <span class="color-tag tag-blue">🌊 Xanh đại dương</span>
+    </div>
+    <div class="scene-desc">
+      <h3>Các panel trong trang này</h3>
+      <ul class="panel-list">
+        <li><span class="panel-tag">P1</span> Con tàu giữa đại dương mênh mông — bầu trời rộng lớn</li>
+        <li><span class="panel-tag">P2</span> Thành làm phụ bếp, tay chai, áo đẫm mồ hôi</li>
+        <li><span class="panel-tag">P3</span> Đêm khuya — Thành lên boong tàu đọc sách dưới ánh sao</li>
+        <li><span class="panel-tag">P4</span> Cận trang sổ tay — <em>"Mỗi chữ học được là một viên gạch..."</em></li>
+      </ul>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-btn" onclick="goTo(3)">← Trước</button>
+      <span class="page-indicator">Trang <span>5</span> / 10</span>
+      <button class="nav-btn primary" onclick="goTo(5)">Tiếp theo →</button>
+    </div>
+  </section>
+
+  <!-- PAGE 6 -->
+  <section class="page-section" id="page-5">
+    <div class="page-header">
+      <div class="page-num">06</div>
+      <div class="page-info">
+        <h2>Ánh Sáng Từ Nước Người</h2>
+        <p>Chương 3 — Bôn ba · Marseille — London</p>
+      </div>
+    </div>
+    <div class="comic-frame">
+      <img src="pages/page_06.png" alt="Trang 6 — Ánh sáng từ nước người" />
+      <span class="color-tag tag-blue">🌍 Xám lạnh châu Âu</span>
+    </div>
+    <div class="scene-desc">
+      <h3>Các panel trong trang này</h3>
+      <ul class="panel-list">
+        <li><span class="panel-tag">P1</span> Marseille — công nhân Pháp đình công, Thành đứng nhìn tò mò</li>
+        <li><span class="panel-tag">P2</span> Người công nhân già nói: <em>"Người lao động ở đâu cũng khổ như nhau..."</em></li>
+        <li><span class="panel-tag">P3</span> Thư viện London — tuyết ngoài cửa, Thành đọc sách cách mạng</li>
+        <li><span class="panel-tag">P4</span> Sổ tay: <em>"Kẻ thù là chủ nghĩa thực dân. DÂN TỘC VIỆT NAM CŨNG CÓ QUYỀN TỰ DO!"</em></li>
+      </ul>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-btn" onclick="goTo(4)">← Trước</button>
+      <span class="page-indicator">Trang <span>6</span> / 10</span>
+      <button class="nav-btn primary" onclick="goTo(6)">Tiếp theo →</button>
+    </div>
+  </section>
+
+  <!-- PAGE 7 -->
+  <section class="page-section" id="page-6">
+    <div class="page-header">
+      <div class="page-num">07</div>
+      <div class="page-info">
+        <h2>Tìm Thấy Con Đường</h2>
+        <p>Chương 4 — Ánh sáng lý luận · Paris, 1920</p>
+      </div>
+    </div>
+    <div class="comic-frame">
+      <img src="pages/page_07.png" alt="Trang 7 — Tìm thấy con đường (đọc Luận cương Lênin)" />
+      <span class="color-tag tag-red">🔥 Đỏ son — Bước ngoặt</span>
+    </div>
+    <div class="scene-desc">
+      <h3>Các panel trong trang này</h3>
+      <ul class="panel-list">
+        <li><span class="panel-tag">P1</span> Căn phòng nhỏ Paris, đêm khuya — Thành mở tờ báo L'Humanité</li>
+        <li><span class="panel-tag">P2</span> Cận tay cầm báo — bài Luận cương của Lênin về vấn đề dân tộc</li>
+        <li><span class="panel-tag">P3 ★</span> Cận mặt Thành — mắt mở to, giọt nước mắt lăn, xúc động mạnh nhất</li>
+        <li><span class="panel-tag">P4</span> Nền đỏ, chữ vàng lớn: <em>"Đây rồi! Đây chính là con đường giải phóng!"</em></li>
+      </ul>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-btn" onclick="goTo(5)">← Trước</button>
+      <span class="page-indicator">Trang <span>7</span> / 10</span>
+      <button class="nav-btn primary" onclick="goTo(7)">Tiếp theo →</button>
+    </div>
+  </section>
+
+  <!-- PAGE 8 — PLACEHOLDER -->
+  <section class="page-section" id="page-7">
+    <div class="page-header">
+      <div class="page-num">08</div>
+      <div class="page-info">
+        <h2>Tiếng Nói Được Lắng Nghe</h2>
+        <p>Chương 4 — Ánh sáng lý luận · Đại hội Tours, 12/1920</p>
+      </div>
+    </div>
+    <div class="placeholder-frame">
+      <div class="placeholder-icon">🎨</div>
+      <p class="placeholder-title">Trang đang chờ sinh ảnh</p>
+      <p class="placeholder-note">Hạn mức sinh ảnh AI đã tạm hết. Trang này sẽ được hoàn thiện khi quota được làm mới (khoảng 7 ngày).</p>
+      <span class="quota-badge">⏳ Quota reset ~18/05/2026</span>
+    </div>
+    <div class="scene-desc">
+      <h3>Kịch bản trang 8</h3>
+      <ul class="panel-list">
+        <li><span class="panel-tag">P1</span> Hội trường Đại hội Tours, Pháp, đông người — ánh đèn rực rỡ</li>
+        <li><span class="panel-tag">P2</span> Thành đứng phát biểu: <em>"Tôi nói nhân danh toàn thể nhân loại bị áp bức..."</em></li>
+        <li><span class="panel-tag">P3</span> Tiếng vỗ tay vang lên — Thành bỏ phiếu gia nhập Đệ tam Quốc tế</li>
+        <li><span class="panel-tag">P4</span> Thành ngồi một mình bên cửa sổ đêm Paris — <em>"Một ngày nào đó sẽ trở về..."</em></li>
+      </ul>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-btn" onclick="goTo(6)">← Trước</button>
+      <span class="page-indicator">Trang <span>8</span> / 10</span>
+      <button class="nav-btn primary" onclick="goTo(8)">Tiếp theo →</button>
+    </div>
+  </section>
+
+  <!-- PAGE 9 — PLACEHOLDER -->
+  <section class="page-section" id="page-8">
+    <div class="page-header">
+      <div class="page-num">09</div>
+      <div class="page-info">
+        <h2>Ngày Trọng Đại</h2>
+        <p>Chương 5 — Hạt giống nảy mầm · 2/9/1945</p>
+      </div>
+    </div>
+    <div class="placeholder-frame">
+      <div class="placeholder-icon">🎨</div>
+      <p class="placeholder-title">Trang đang chờ sinh ảnh</p>
+      <p class="placeholder-note">Hạn mức sinh ảnh AI đã tạm hết. Trang này sẽ được hoàn thiện khi quota được làm mới.</p>
+      <span class="quota-badge">⏳ Quota reset ~18/05/2026</span>
+    </div>
+    <div class="scene-desc">
+      <h3>Kịch bản trang 9</h3>
+      <ul class="panel-list">
+        <li><span class="panel-tag">P1 ★</span> Quảng trường Ba Đình 2/9/1945 — biển người, cờ đỏ sao vàng tung bay</li>
+        <li><span class="panel-tag">P2</span> Bác Hồ đứng trước micro — trang nghiêm, lịch sử</li>
+        <li><span class="panel-tag">P3</span> <em>"Tất cả mọi người đều sinh ra có quyền bình đẳng..."</em></li>
+        <li><span class="panel-tag">P4</span> Khuôn mặt người dân — già trẻ, nước mắt hạnh phúc</li>
+      </ul>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-btn" onclick="goTo(7)">← Trước</button>
+      <span class="page-indicator">Trang <span>9</span> / 10</span>
+      <button class="nav-btn primary" onclick="goTo(9)">Tiếp theo →</button>
+    </div>
+  </section>
+
+  <!-- PAGE 10 — PLACEHOLDER -->
+  <section class="page-section" id="page-9">
+    <div class="page-header">
+      <div class="page-num">10</div>
+      <div class="page-info">
+        <h2>Vòng Tròn Khép Lại</h2>
+        <p>Kết thúc — Câu hỏi của một đứa trẻ đã thay đổi lịch sử</p>
+      </div>
+    </div>
+    <div class="placeholder-frame">
+      <div class="placeholder-icon">🎨</div>
+      <p class="placeholder-title">Trang đang chờ sinh ảnh</p>
+      <p class="placeholder-note">Đây là trang kết — Bác Hồ ngồi dưới gốc cây, trẻ em vây quanh lắng nghe, ánh chiều vàng.</p>
+      <span class="quota-badge">⏳ Quota reset ~18/05/2026</span>
+    </div>
+    <div class="scene-desc">
+      <h3>Kịch bản trang 10</h3>
+      <ul class="panel-list">
+        <li><span class="panel-tag">P1</span> Flashback: cậu bé Thành 10 tuổi nhìn trời — <em>"Một câu hỏi của một đứa trẻ..."</em></li>
+        <li><span class="panel-tag">P2</span> Hiện tại: Bác Hồ nhìn lên trời — cùng ánh mắt ấy</li>
+        <li><span class="panel-tag">P3</span> Hai hình chồng lên nhau — cậu bé và người cha của dân tộc</li>
+        <li><span class="panel-tag">P4 ★</span> Bác ngồi dưới gốc cây, trẻ em vây quanh, ánh chiều vàng rực</li>
+      </ul>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-btn" onclick="goTo(8)">← Trước</button>
+      <span class="page-indicator">Trang <span>10</span> / 10</span>
+      <button class="nav-btn" disabled>Hết truyện ✓</button>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p><em>Con Đường Cứu Nước</em> · Truyện tranh lịch sử · Hồ Chí Minh (1890–1969)</p>
+  <p style="margin-top:0.4rem">Phiên bản tinh gọn task_02 · 7/10 trang đã hoàn thiện</p>
+</footer>
+
+<script>
+  let current = 0;
+  const total = 10;
+  const available = 7; // pages 1-7 have images
+
+  function goTo(index) {
+    if (index < 0 || index >= total) return;
+    // deactivate current
+    document.getElementById('page-' + current).classList.remove('active');
+    document.querySelectorAll('.nav-tab')[current].classList.remove('active');
+    current = index;
+    // activate new
+    document.getElementById('page-' + current).classList.add('active');
+    document.querySelectorAll('.nav-tab')[current].classList.add('active');
+    // update progress
+    const pct = ((current + 1) / total * 100).toFixed(0);
+    document.getElementById('progressBar').style.width = pct + '%';
+    document.getElementById('progressCount').textContent = 'Trang ' + (current + 1) + ' / ' + total;
+    // scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // keyboard navigation
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') goTo(current + 1);
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   goTo(current - 1);
+  });
+</script>
+</body>
+</html>
